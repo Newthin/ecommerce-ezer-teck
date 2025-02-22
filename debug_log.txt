@@ -1,0 +1,6 @@
+Array
+(
+    [name] => new
+    [email] => new@gmail.com
+    [address] => wa
+)

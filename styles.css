@@ -1,0 +1,579 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+    color: #333;
+    padding-top: 200px; /* Adjust based on navbar height */
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Change if needed */
+    z-index: 1000; /* Ensures navbar stays on top */
+    /* padding: 15px 20px;*/
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow */
+}
+
+.company {
+    text-align: center;
+    
+}
+h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Navigation */
+nav {
+    background: #007bff;
+    padding: 15px;
+    text-align: center;
+  
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Product Details Section */
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Product Image */
+.product-image {
+    flex: 1;
+    text-align: center;
+    max-width: 500px;
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Info */
+.product-info {
+    flex: 1;
+    padding: 20px;
+    max-width: 500px;
+}
+
+.product-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e67e22;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #d35400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-details {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+}
+
+
+/* Product Listing */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product h3 {
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.product button:hover {
+    background: #218838;
+}
+
+/* Cart Page */
+.cart {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.cart-item h3 {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.cart-item p {
+    font-weight: bold;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.quantity-controls button:hover {
+    background: #0056b3;
+}
+
+.remove {
+    background: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.remove:hover {
+    background: #c82333;
+}
+
+/* Admin Page */
+.admin-container {
+    text-align: center;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+   
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.admin-table th {
+    background: #007bff;
+    color: white;
+}
+
+.admin-table td {
+    background: #f8f9fa;
+}
+
+.admin-table button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.admin-table button:hover {
+    background: #c82333;
+}
+
+.orders-container {
+    text-align: center;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+}
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.orders-table th, .orders-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.orders-table th {
+    background: #007bff;
+    color: white;
+}
+
+.orders-table td {
+    background: #f8f9fa;
+}
+
+.orders-table button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.orders-table button:hover {
+    background: #c82333;
+}
+
+/* Order Confirmation Section */
+.order-confirmation {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-confirmation h2 {
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.order-confirmation p {
+    font-size: 16px;
+    color: #333;
+    margin: 8px 0;
+}
+
+/* Order Details Table */
+.order-confirmation table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.order-confirmation table, 
+.order-confirmation th, 
+.order-confirmation td {
+    border: 1px solid #ddd;
+}
+
+.order-confirmation th, 
+.order-confirmation td {
+    padding: 10px;
+    text-align: center;
+}
+
+.order-confirmation th {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Total Amount */
+.order-confirmation p strong {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Button */
+.order-confirmation button {
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.order-confirmation button:hover {
+    background: #218838;
+}
+
+
+/* Login & Signup Page */
+.auth-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.auth-form button:hover {
+    background: #218838;
+}
+
+/* Add Product Page */
+.add-product-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-container input, .add-product-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-product-container button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-product-container button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart-item img {
+        margin-bottom: 10px;
+    }
+}
+
+
+.edit-product-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.edit-product-container h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.edit-product-container label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+.edit-product-container input,
+.edit-product-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.edit-product-container textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.edit-product-container img {
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.edit-product-container input[type="file"] {
+    border: none;
+    padding: 5px;
+}
+
+.edit-product-container button {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.edit-product-container button:hover {
+    background: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .edit-product-container {
+        width: 90%;
+    }
+}
+
+
