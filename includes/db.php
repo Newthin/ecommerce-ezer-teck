@@ -1,14 +1,22 @@
 <?php
-// Database connection
-$host = getenv('DB_HOST');
-$dbname = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
-$port = getenv('DB_PORT');
-$database = 'ecommerce_db';
+// Load environment variables
+require 'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-$conn = new mysqli($host, $user, $password, $dbname, $port);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Get database credentials from environment variables
+$host = $_ENV['DB_HOST'];
+$dbname = $_ENV['DB_NAME'];
+$user = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASSWORD'];
+$port = $_ENV['DB_PORT'];
+
+// Connect to PostgreSQL
+$connString = "host=$host dbname=$dbname user=$user password=$password port=$port";
+$conn = pg_connect($connString);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . pg_last_error());
 }
 ?>
