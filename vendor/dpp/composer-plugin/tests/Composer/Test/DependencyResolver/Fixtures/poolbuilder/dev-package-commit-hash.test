@@ -1,0 +1,5421 @@
+--TEST--
+Test that taas-assets is added with correct commit hash.
+
+--DPP-VERSION--
+1.0.0
+
+--REQUEST--
+{
+    "require": {
+    "php": "^8.1",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "ext-mbstring": "*",
+    "composer/installers": "*",
+    "dpp/version": "^1",
+    "drupal/core-composer-scaffold": "*",
+    "drupal/locale_deploy": "*",
+    "drush/drush": "*",
+    "oomphinc/composer-installers-extender": "*",
+    "thunder/taas-assets": "*",
+    "thunder/thunder-distribution": "*",
+    "vlucas/phpdotenv": "*",
+    "drupal/core-dev": "*",
+    "mglaman/phpstan-drupal": "*",
+    "phpspec/prophecy-phpunit": "*",
+    "phpstan/phpstan-deprecation-rules": "*",
+    "palantirnet/drupal-rector": "*"
+},
+    "locked": [
+    {
+        "name": "asm89/stack-cors",
+        "version": "1.3.0"
+    },
+    {
+        "name": "caxy/php-htmldiff",
+        "version": "v0.1.14"
+    },
+    {
+        "name": "chi-teck/drupal-code-generator",
+        "version": "2.6.2"
+    },
+    {
+        "name": "composer/installers",
+        "version": "v1.12.0"
+    },
+    {
+        "name": "composer/semver",
+        "version": "3.3.2"
+    },
+    {
+        "name": "consolidation/annotated-command",
+        "version": "4.9.1"
+    },
+    {
+        "name": "consolidation/config",
+        "version": "2.1.2"
+    },
+    {
+        "name": "consolidation/filter-via-dot-access-data",
+        "version": "2.0.2"
+    },
+    {
+        "name": "consolidation/log",
+        "version": "2.1.1"
+    },
+    {
+        "name": "consolidation/output-formatters",
+        "version": "4.3.1"
+    },
+    {
+        "name": "consolidation/robo",
+        "version": "4.0.2"
+    },
+    {
+        "name": "consolidation/self-update",
+        "version": "2.1.0"
+    },
+    {
+        "name": "consolidation/site-alias",
+        "version": "3.1.7"
+    },
+    {
+        "name": "consolidation/site-process",
+        "version": "4.2.1"
+    },
+    {
+        "name": "cweagans/composer-patches",
+        "version": "1.7.3"
+    },
+    {
+        "name": "dflydev/dot-access-data",
+        "version": "v3.0.2"
+    },
+    {
+        "name": "doctrine/annotations",
+        "version": "1.14.3"
+    },
+    {
+        "name": "doctrine/deprecations",
+        "version": "v1.1.0"
+    },
+    {
+        "name": "doctrine/lexer",
+        "version": "2.1.0"
+    },
+    {
+        "name": "doctrine/reflection",
+        "version": "1.2.3"
+    },
+    {
+        "name": "dpp/version",
+        "version": "1.0.0"
+    },
+    {
+        "name": "drupal/access_unpublished",
+        "version": "1.5.0"
+    },
+    {
+        "name": "drupal/admin_toolbar",
+        "version": "3.4.1"
+    },
+    {
+        "name": "drupal/adsense",
+        "version": "1.3.0"
+    },
+    {
+        "name": "drupal/advancedqueue",
+        "version": "1.0.0-rc7"
+    },
+    {
+        "name": "drupal/autofill",
+        "version": "1.1.0"
+    },
+    {
+        "name": "drupal/autosave_form",
+        "version": "1.4.0"
+    },
+    {
+        "name": "drupal/better_normalizers",
+        "version": "1.0.0-beta5"
+    },
+    {
+        "name": "drupal/blazy",
+        "version": "2.15.0"
+    },
+    {
+        "name": "drupal/checklistapi",
+        "version": "2.1.2"
+    },
+    {
+        "name": "drupal/config_selector",
+        "version": "2.2.0"
+    },
+    {
+        "name": "drupal/config_update",
+        "version": "1.7.0"
+    },
+    {
+        "name": "drupal/content_lock",
+        "version": "2.3.0"
+    },
+    {
+        "name": "drupal/core",
+        "version": "9.5.9"
+    },
+    {
+        "name": "drupal/core-composer-scaffold",
+        "version": "9.5.9"
+    },
+    {
+        "name": "drupal/crop",
+        "version": "2.3.0"
+    },
+    {
+        "name": "drupal/ctools",
+        "version": "3.14.0"
+    },
+    {
+        "name": "drupal/default_content",
+        "version": "2.0.0-alpha2"
+    },
+    {
+        "name": "drupal/diff",
+        "version": "1.1.0"
+    },
+    {
+        "name": "drupal/dropzonejs",
+        "version": "2.8.0"
+    },
+    {
+        "name": "drupal/empty_fields",
+        "version": "1.0.0-beta2"
+    },
+    {
+        "name": "drupal/entity_browser",
+        "version": "2.6.0"
+    },
+    {
+        "name": "drupal/entity_reference_actions",
+        "version": "1.0.0"
+    },
+    {
+        "name": "drupal/entity_reference_revisions",
+        "version": "1.10.0"
+    },
+    {
+        "name": "drupal/facets",
+        "version": "2.0.6"
+    },
+    {
+        "name": "drupal/field_group",
+        "version": "3.4.0"
+    },
+    {
+        "name": "drupal/focal_point",
+        "version": "1.5.0"
+    },
+    {
+        "name": "drupal/google_analytics",
+        "version": "2.5.0"
+    },
+    {
+        "name": "drupal/graphql",
+        "version": "4.5.0"
+    },
+    {
+        "name": "drupal/hal",
+        "version": "1.0.3"
+    },
+    {
+        "name": "drupal/inline_entity_form",
+        "version": "1.0.0-rc15"
+    },
+    {
+        "name": "drupal/ivw_integration",
+        "version": "2.5.0"
+    },
+    {
+        "name": "drupal/length_indicator",
+        "version": "1.2.0"
+    },
+    {
+        "name": "drupal/linkit",
+        "version": "6.0.0-rc1"
+    },
+    {
+        "name": "drupal/liveblog",
+        "version": "1.3.0-alpha15"
+    },
+    {
+        "name": "drupal/locale_deploy",
+        "version": "1.0.0-beta2"
+    },
+    {
+        "name": "drupal/media_entity_instagram",
+        "version": "3.0.8"
+    },
+    {
+        "name": "drupal/media_entity_pinterest",
+        "version": "2.6.0"
+    },
+    {
+        "name": "drupal/media_entity_slideshow",
+        "version": "2.5.0"
+    },
+    {
+        "name": "drupal/media_entity_twitter",
+        "version": "2.9.0"
+    },
+    {
+        "name": "drupal/media_expire",
+        "version": "2.6.0"
+    },
+    {
+        "name": "drupal/media_file_delete",
+        "version": "1.3.0"
+    },
+    {
+        "name": "drupal/metatag",
+        "version": "1.25.0"
+    },
+    {
+        "name": "drupal/metatag_async_widget",
+        "version": "1.1.0"
+    },
+    {
+        "name": "drupal/paragraphs",
+        "version": "1.15.0"
+    },
+    {
+        "name": "drupal/paragraphs_features",
+        "version": "1.16.0"
+    },
+    {
+        "name": "drupal/paragraphs_paste",
+        "version": "2.0.0-beta6"
+    },
+    {
+        "name": "drupal/password_policy",
+        "version": "4.0.0"
+    },
+    {
+        "name": "drupal/pathauto",
+        "version": "1.11.0"
+    },
+    {
+        "name": "drupal/potx",
+        "version": "1.0.0"
+    },
+    {
+        "name": "drupal/redirect",
+        "version": "1.8.0"
+    },
+    {
+        "name": "drupal/responsive_preview",
+        "version": "1.1.0"
+    },
+    {
+        "name": "drupal/scheduler",
+        "version": "2.0.0-rc8"
+    },
+    {
+        "name": "drupal/scheduler_content_moderation_integration",
+        "version": "2.0.0-beta1"
+    },
+    {
+        "name": "drupal/schema_metatag",
+        "version": "2.4.0"
+    },
+    {
+        "name": "drupal/search_api",
+        "version": "1.29.0"
+    },
+    {
+        "name": "drupal/search_api_mark_outdated",
+        "version": "1.0.0-beta2"
+    },
+    {
+        "name": "drupal/select2",
+        "version": "1.15.0"
+    },
+    {
+        "name": "drupal/shariff",
+        "version": "1.7.0"
+    },
+    {
+        "name": "drupal/simple_gmap",
+        "version": "2.0.0"
+    },
+    {
+        "name": "drupal/simple_sitemap",
+        "version": "3.11.0"
+    },
+    {
+        "name": "drupal/slick",
+        "version": "2.8.0"
+    },
+    {
+        "name": "drupal/thunder_admin",
+        "version": "4.0.5"
+    },
+    {
+        "name": "drupal/token",
+        "version": "1.11.0"
+    },
+    {
+        "name": "drupal/typed_data",
+        "version": "1.0.0-beta2"
+    },
+    {
+        "name": "drupal/update_helper",
+        "version": "3.0.4"
+    },
+    {
+        "name": "drupal/vgwort",
+        "version": "2.0.0-beta5"
+    },
+    {
+        "name": "drupal/views_bulk_edit",
+        "version": "2.8.0"
+    },
+    {
+        "name": "drupal/views_bulk_operations",
+        "version": "4.2.4"
+    },
+    {
+        "name": "drupal/xymatic",
+        "version": "1.0.0-beta5"
+    },
+    {
+        "name": "drush/drush",
+        "version": "11.5.1"
+    },
+    {
+        "name": "egulias/email-validator",
+        "version": "3.2.5"
+    },
+    {
+        "name": "enlightn/security-checker",
+        "version": "v1.10.0"
+    },
+    {
+        "name": "ezyang/htmlpurifier",
+        "version": "v4.16.0"
+    },
+    {
+        "name": "graham-campbell/result-type",
+        "version": "v1.1.1"
+    },
+    {
+        "name": "grasmash/expander",
+        "version": "2.0.3"
+    },
+    {
+        "name": "guzzlehttp/guzzle",
+        "version": "6.5.8"
+    },
+    {
+        "name": "guzzlehttp/promises",
+        "version": "1.5.3"
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "1.9.1"
+    },
+    {
+        "name": "j7mbo/twitter-api-php",
+        "version": "1.0.6"
+    },
+    {
+        "name": "laminas/laminas-escaper",
+        "version": "2.12.0"
+    },
+    {
+        "name": "laminas/laminas-feed",
+        "version": "2.20.0"
+    },
+    {
+        "name": "laminas/laminas-servicemanager",
+        "version": "3.21.0"
+    },
+    {
+        "name": "laminas/laminas-stdlib",
+        "version": "3.17.0"
+    },
+    {
+        "name": "league/container",
+        "version": "4.2.0"
+    },
+    {
+        "name": "longwave/laminas-diactoros",
+        "version": "2.14.2"
+    },
+    {
+        "name": "masterminds/html5",
+        "version": "2.8.0"
+    },
+    {
+        "name": "mkalkbrenner/php-htmldiff-advanced",
+        "version": "0.0.8"
+    },
+    {
+        "name": "netcarver/textile",
+        "version": "v3.8.0"
+    },
+    {
+        "name": "nikic/php-parser",
+        "version": "v4.15.5"
+    },
+    {
+        "name": "npm-asset/blazy",
+        "version": "1.8.2"
+    },
+    {
+        "name": "npm-asset/dropzone",
+        "version": "5.9.3"
+    },
+    {
+        "name": "npm-asset/exif-js",
+        "version": "2.3.0"
+    },
+    {
+        "name": "npm-asset/fortawesome--fontawesome-free",
+        "version": "5.15.4"
+    },
+    {
+        "name": "npm-asset/select2",
+        "version": "4.0.13"
+    },
+    {
+        "name": "npm-asset/shariff",
+        "version": "3.2.1"
+    },
+    {
+        "name": "npm-asset/slick-carousel",
+        "version": "1.8.1"
+    },
+    {
+        "name": "oomphinc/composer-installers-extender",
+        "version": "2.0.1"
+    },
+    {
+        "name": "paragonie/random_compat",
+        "version": "v9.99.100"
+    },
+    {
+        "name": "paragonie/sodium_compat",
+        "version": "v1.20.0"
+    },
+    {
+        "name": "pear/archive_tar",
+        "version": "1.4.14"
+    },
+    {
+        "name": "pear/console_getopt",
+        "version": "v1.4.3"
+    },
+    {
+        "name": "pear/pear-core-minimal",
+        "version": "v1.10.13"
+    },
+    {
+        "name": "pear/pear_exception",
+        "version": "v1.0.2"
+    },
+    {
+        "name": "phpoption/phpoption",
+        "version": "1.9.1"
+    },
+    {
+        "name": "phpstan/extension-installer",
+        "version": "1.3.1"
+    },
+    {
+        "name": "phpstan/phpstan",
+        "version": "1.10.15"
+    },
+    {
+        "name": "psr/cache",
+        "version": "3.0.0"
+    },
+    {
+        "name": "psr/container",
+        "version": "1.1.2"
+    },
+    {
+        "name": "psr/http-factory",
+        "version": "1.0.2"
+    },
+    {
+        "name": "psr/http-message",
+        "version": "1.1"
+    },
+    {
+        "name": "psr/log",
+        "version": "1.1.4"
+    },
+    {
+        "name": "psy/psysh",
+        "version": "v0.11.18"
+    },
+    {
+        "name": "pusher/pusher-php-server",
+        "version": "v4.1.5"
+    },
+    {
+        "name": "ralouphie/getallheaders",
+        "version": "3.0.3"
+    },
+    {
+        "name": "stack/builder",
+        "version": "v1.0.6"
+    },
+    {
+        "name": "symfony-cmf/routing",
+        "version": "2.3.4"
+    },
+    {
+        "name": "symfony/console",
+        "version": "v4.4.49"
+    },
+    {
+        "name": "symfony/debug",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/dependency-injection",
+        "version": "v4.4.49"
+    },
+    {
+        "name": "symfony/deprecation-contracts",
+        "version": "v3.3.0"
+    },
+    {
+        "name": "symfony/error-handler",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/event-dispatcher",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/event-dispatcher-contracts",
+        "version": "v1.1.13"
+    },
+    {
+        "name": "symfony/filesystem",
+        "version": "v4.4.42"
+    },
+    {
+        "name": "symfony/finder",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/http-client-contracts",
+        "version": "v2.5.2"
+    },
+    {
+        "name": "symfony/http-foundation",
+        "version": "v4.4.49"
+    },
+    {
+        "name": "symfony/http-kernel",
+        "version": "v4.4.50"
+    },
+    {
+        "name": "symfony/mime",
+        "version": "v5.4.13"
+    },
+    {
+        "name": "symfony/polyfill-intl-grapheme",
+        "version": "v1.27.0"
+    },
+    {
+        "name": "symfony/polyfill-intl-idn",
+        "version": "v1.27.0"
+    },
+    {
+        "name": "symfony/polyfill-intl-normalizer",
+        "version": "v1.27.0"
+    },
+    {
+        "name": "symfony/process",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/psr-http-message-bridge",
+        "version": "v2.1.4"
+    },
+    {
+        "name": "symfony/routing",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/serializer",
+        "version": "v4.4.47"
+    },
+    {
+        "name": "symfony/service-contracts",
+        "version": "v2.5.2"
+    },
+    {
+        "name": "symfony/string",
+        "version": "v6.3.0"
+    },
+    {
+        "name": "symfony/translation",
+        "version": "v4.4.47"
+    },
+    {
+        "name": "symfony/translation-contracts",
+        "version": "v2.5.2"
+    },
+    {
+        "name": "symfony/validator",
+        "version": "v4.4.48"
+    },
+    {
+        "name": "symfony/var-dumper",
+        "version": "v5.4.24"
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "v4.4.45"
+    },
+    {
+        "name": "thunder/taas-assets",
+        "version": "9999999-dev"
+    },
+    {
+        "name": "thunder/taas-assets",
+        "version": "dev-main"
+    },
+    {
+        "name": "thunder/thunder-distribution",
+        "version": "6.5.5"
+    },
+    {
+        "name": "twig/twig",
+        "version": "v2.15.5"
+    },
+    {
+        "name": "typo3/phar-stream-wrapper",
+        "version": "v3.1.7"
+    },
+    {
+        "name": "vlucas/phpdotenv",
+        "version": "v5.5.0"
+    },
+    {
+        "name": "webflo/drupal-finder",
+        "version": "1.2.2"
+    },
+    {
+        "name": "webmozart/assert",
+        "version": "1.11.0"
+    },
+    {
+        "name": "webmozart/path-util",
+        "version": "2.3.0"
+    },
+    {
+        "name": "webonyx/graphql-php",
+        "version": "v14.11.9"
+    },
+    {
+        "name": "behat/mink",
+        "version": "v1.10.0"
+    },
+    {
+        "name": "behat/mink-selenium2-driver",
+        "version": "v1.6.0"
+    },
+    {
+        "name": "composer/ca-bundle",
+        "version": "1.3.5"
+    },
+    {
+        "name": "composer/composer",
+        "version": "2.2.21"
+    },
+    {
+        "name": "composer/metadata-minifier",
+        "version": "1.0.0"
+    },
+    {
+        "name": "composer/pcre",
+        "version": "1.0.1"
+    },
+    {
+        "name": "composer/spdx-licenses",
+        "version": "1.5.7"
+    },
+    {
+        "name": "composer/xdebug-handler",
+        "version": "3.0.3"
+    },
+    {
+        "name": "dealerdirect/phpcodesniffer-composer-installer",
+        "version": "v0.7.2"
+    },
+    {
+        "name": "doctrine/instantiator",
+        "version": "2.0.0"
+    },
+    {
+        "name": "drupal/coder",
+        "version": "8.3.18"
+    },
+    {
+        "name": "drupal/core-dev",
+        "version": "9.5.9"
+    },
+    {
+        "name": "easyrdf/easyrdf",
+        "version": "1.1.1"
+    },
+    {
+        "name": "friends-of-behat/mink-browserkit-driver",
+        "version": "v1.6.1"
+    },
+    {
+        "name": "instaclick/php-webdriver",
+        "version": "1.4.16"
+    },
+    {
+        "name": "justinrainbow/json-schema",
+        "version": "5.2.12"
+    },
+    {
+        "name": "mglaman/phpstan-drupal",
+        "version": "1.1.34"
+    },
+    {
+        "name": "mikey179/vfsstream",
+        "version": "v1.6.11"
+    },
+    {
+        "name": "myclabs/deep-copy",
+        "version": "1.11.1"
+    },
+    {
+        "name": "palantirnet/drupal-rector",
+        "version": "0.13.1"
+    },
+    {
+        "name": "phar-io/manifest",
+        "version": "2.0.3"
+    },
+    {
+        "name": "phar-io/version",
+        "version": "3.2.1"
+    },
+    {
+        "name": "phpdocumentor/reflection-common",
+        "version": "2.2.0"
+    },
+    {
+        "name": "phpdocumentor/reflection-docblock",
+        "version": "5.3.0"
+    },
+    {
+        "name": "phpdocumentor/type-resolver",
+        "version": "1.7.2"
+    },
+    {
+        "name": "phpspec/prophecy",
+        "version": "v1.17.0"
+    },
+    {
+        "name": "phpspec/prophecy-phpunit",
+        "version": "v2.0.2"
+    },
+    {
+        "name": "phpstan/phpdoc-parser",
+        "version": "1.21.3"
+    },
+    {
+        "name": "phpstan/phpstan-deprecation-rules",
+        "version": "1.1.3"
+    },
+    {
+        "name": "phpunit/php-code-coverage",
+        "version": "9.2.26"
+    },
+    {
+        "name": "phpunit/php-file-iterator",
+        "version": "3.0.6"
+    },
+    {
+        "name": "phpunit/php-invoker",
+        "version": "3.1.1"
+    },
+    {
+        "name": "phpunit/php-text-template",
+        "version": "2.0.4"
+    },
+    {
+        "name": "phpunit/php-timer",
+        "version": "5.0.3"
+    },
+    {
+        "name": "phpunit/phpunit",
+        "version": "9.6.8"
+    },
+    {
+        "name": "react/promise",
+        "version": "v2.10.0"
+    },
+    {
+        "name": "rector/rector",
+        "version": "0.13.10"
+    },
+    {
+        "name": "sebastian/cli-parser",
+        "version": "1.0.1"
+    },
+    {
+        "name": "sebastian/code-unit",
+        "version": "1.0.8"
+    },
+    {
+        "name": "sebastian/code-unit-reverse-lookup",
+        "version": "2.0.3"
+    },
+    {
+        "name": "sebastian/comparator",
+        "version": "4.0.8"
+    },
+    {
+        "name": "sebastian/complexity",
+        "version": "2.0.2"
+    },
+    {
+        "name": "sebastian/diff",
+        "version": "4.0.5"
+    },
+    {
+        "name": "sebastian/environment",
+        "version": "5.1.5"
+    },
+    {
+        "name": "sebastian/exporter",
+        "version": "4.0.5"
+    },
+    {
+        "name": "sebastian/global-state",
+        "version": "5.0.5"
+    },
+    {
+        "name": "sebastian/lines-of-code",
+        "version": "1.0.3"
+    },
+    {
+        "name": "sebastian/object-enumerator",
+        "version": "4.0.4"
+    },
+    {
+        "name": "sebastian/object-reflector",
+        "version": "2.0.4"
+    },
+    {
+        "name": "sebastian/recursion-context",
+        "version": "4.0.5"
+    },
+    {
+        "name": "sebastian/resource-operations",
+        "version": "3.0.3"
+    },
+    {
+        "name": "sebastian/type",
+        "version": "3.2.1"
+    },
+    {
+        "name": "sebastian/version",
+        "version": "3.0.2"
+    },
+    {
+        "name": "seld/jsonlint",
+        "version": "1.10.0"
+    },
+    {
+        "name": "seld/phar-utils",
+        "version": "1.2.1"
+    },
+    {
+        "name": "sirbrillig/phpcs-variable-analysis",
+        "version": "v2.11.16"
+    },
+    {
+        "name": "slevomat/coding-standard",
+        "version": "8.3.0"
+    },
+    {
+        "name": "squizlabs/php_codesniffer",
+        "version": "3.7.2"
+    },
+    {
+        "name": "symfony/browser-kit",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/css-selector",
+        "version": "v4.4.44"
+    },
+    {
+        "name": "symfony/dom-crawler",
+        "version": "v4.4.45"
+    },
+    {
+        "name": "symfony/lock",
+        "version": "v4.4.46"
+    },
+    {
+        "name": "symfony/phpunit-bridge",
+        "version": "v5.4.23"
+    },
+    {
+        "name": "theseer/tokenizer",
+        "version": "1.2.1"
+    }
+]
+}
+
+--FIXED--
+[
+    {
+        "name": "dpp/dpp-project",
+        "version": "dev-main",
+        "replace": {
+            "symfony/polyfill-php72": {},
+            "symfony/polyfill-php73": {},
+            "symfony/polyfill-php80": {},
+            "symfony/polyfill-mbstring": {},
+            "symfony/polyfill-iconv": {},
+            "symfony/polyfill-ctype": {}
+        }
+    },
+    {
+        "name": "composer",
+        "version": "2.6.6",
+        "replace": []
+    },
+    {
+        "name": "composer-plugin-api",
+        "version": "2.6.0",
+        "replace": []
+    },
+    {
+        "name": "composer-runtime-api",
+        "version": "2.2.2",
+        "replace": []
+    },
+    {
+        "name": "php",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "php-64bit",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "php-ipv6",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-date",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-libxml",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-openssl",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pcre",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-sqlite3",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-zlib",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-bcmath",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-bz2",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-calendar",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-ctype",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-curl",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-dba",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-dom",
+        "version": "20031129",
+        "replace": []
+    },
+    {
+        "name": "ext-hash",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-ffi",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-fileinfo",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-filter",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-ftp",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-gd",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-gettext",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-gmp",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-json",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-iconv",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-intl",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-spl",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-ldap",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-mbstring",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-session",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-odbc",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pcntl",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-exif",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-mysqlnd",
+        "version": "0",
+        "replace": []
+    },
+    {
+        "name": "ext-pdo",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pdo_dblib",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pdo_mysql",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pdo_odbc",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pdo_pgsql",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pdo_sqlite",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pgsql",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-phar",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-posix",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-pspell",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-random",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-readline",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-reflection",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-mysqli",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-shmop",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-simplexml",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-soap",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-sockets",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-sodium",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-sysvmsg",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-sysvsem",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-sysvshm",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-tidy",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-tokenizer",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-xml",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-xmlreader",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-xmlwriter",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-xsl",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-zip",
+        "version": "1.21.1",
+        "replace": []
+    },
+    {
+        "name": "ext-pcov",
+        "version": "1.0.11",
+        "replace": []
+    },
+    {
+        "name": "ext-zend-opcache",
+        "version": "8.2.14",
+        "replace": []
+    },
+    {
+        "name": "ext-xdebug",
+        "version": "3.3.1",
+        "replace": []
+    },
+    {
+        "name": "lib-date-timelib",
+        "version": "2022.10",
+        "replace": []
+    },
+    {
+        "name": "lib-date-zoneinfo",
+        "version": "2023.3",
+        "replace": []
+    },
+    {
+        "name": "lib-libxml",
+        "version": "2.9.13",
+        "replace": []
+    },
+    {
+        "name": "lib-openssl",
+        "version": "3.2.0",
+        "replace": []
+    },
+    {
+        "name": "lib-pcre",
+        "version": "10.42",
+        "replace": []
+    },
+    {
+        "name": "lib-pcre-unicode",
+        "version": "14.0.0",
+        "replace": []
+    },
+    {
+        "name": "lib-sqlite3-sqlite",
+        "version": "3.44.2",
+        "replace": []
+    },
+    {
+        "name": "lib-zlib",
+        "version": "1.2.12",
+        "replace": []
+    },
+    {
+        "name": "lib-bz2",
+        "version": "1.0.8",
+        "replace": []
+    },
+    {
+        "name": "lib-curl",
+        "version": "8.5.0",
+        "replace": []
+    },
+    {
+        "name": "lib-curl-securetransport",
+        "version": "3.2.0",
+        "replace": {
+            "curl-openssl": {}
+        }
+    },
+    {
+        "name": "lib-curl-libssh2",
+        "version": "1.11.0",
+        "replace": []
+    },
+    {
+        "name": "lib-curl-zlib",
+        "version": "1.2.12",
+        "replace": []
+    },
+    {
+        "name": "lib-fileinfo-libmagic",
+        "version": "540",
+        "replace": []
+    },
+    {
+        "name": "lib-gd",
+        "version": "2.3.3",
+        "replace": []
+    },
+    {
+        "name": "lib-gmp",
+        "version": "6.3.0",
+        "replace": []
+    },
+    {
+        "name": "lib-iconv",
+        "version": "1.11",
+        "replace": []
+    },
+    {
+        "name": "lib-icu",
+        "version": "73.2",
+        "replace": []
+    },
+    {
+        "name": "lib-icu-zoneinfo",
+        "version": "2023.3",
+        "replace": []
+    },
+    {
+        "name": "lib-icu-cldr",
+        "version": "43.1",
+        "replace": []
+    },
+    {
+        "name": "lib-icu-unicode",
+        "version": "15.0.0",
+        "replace": []
+    },
+    {
+        "name": "lib-ldap-openldap",
+        "version": "2.6.6",
+        "replace": []
+    },
+    {
+        "name": "lib-mbstring-libmbfl",
+        "version": "1.3.2",
+        "replace": []
+    },
+    {
+        "name": "lib-mbstring-oniguruma",
+        "version": "6.9.9",
+        "replace": []
+    },
+    {
+        "name": "lib-pdo_pgsql-libpq",
+        "version": "16.1",
+        "replace": []
+    },
+    {
+        "name": "lib-pdo_sqlite-sqlite",
+        "version": "3.44.2",
+        "replace": []
+    },
+    {
+        "name": "lib-pgsql-libpq",
+        "version": "16.1",
+        "replace": []
+    },
+    {
+        "name": "lib-libsodium",
+        "version": "1.0.19",
+        "replace": []
+    },
+    {
+        "name": "lib-libxslt",
+        "version": "1.1.35",
+        "replace": {
+            "xsl": {}
+        }
+    },
+    {
+        "name": "lib-libxslt-libxml",
+        "version": "2.9.13",
+        "replace": []
+    },
+    {
+        "name": "lib-zip-libzip",
+        "version": "1.10.1",
+        "replace": {
+            "zip": {}
+        }
+    }
+]
+
+--PACKAGE-REPOS--
+[
+    [
+        {
+            "name": "dpp/dpp-project",
+            "version": "dev-main",
+            "require": []
+        }
+    ],
+    [
+        {
+            "name": "composer",
+            "version": "2.6.6",
+            "require": []
+        },
+        {
+            "name": "composer-plugin-api",
+            "version": "2.6.0",
+            "require": []
+        },
+        {
+            "name": "composer-runtime-api",
+            "version": "2.2.2",
+            "require": []
+        },
+        {
+            "name": "php",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "php-64bit",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "php-ipv6",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-date",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-libxml",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-openssl",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pcre",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-sqlite3",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-zlib",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-bcmath",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-bz2",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-calendar",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-ctype",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-curl",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-dba",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-dom",
+            "version": "20031129",
+            "require": []
+        },
+        {
+            "name": "ext-hash",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-ffi",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-fileinfo",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-filter",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-ftp",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-gd",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-gettext",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-gmp",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-json",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-iconv",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-intl",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-spl",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-ldap",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-mbstring",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-session",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-odbc",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pcntl",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-exif",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-mysqlnd",
+            "version": "0",
+            "require": []
+        },
+        {
+            "name": "ext-pdo",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pdo_dblib",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pdo_mysql",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pdo_odbc",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pdo_pgsql",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pdo_sqlite",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pgsql",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-phar",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-posix",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-pspell",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-random",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-readline",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-reflection",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-mysqli",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-shmop",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-simplexml",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-soap",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-sockets",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-sodium",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-sysvmsg",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-sysvsem",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-sysvshm",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-tidy",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-tokenizer",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-xml",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-xmlreader",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-xmlwriter",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-xsl",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-zip",
+            "version": "1.21.1",
+            "require": []
+        },
+        {
+            "name": "ext-pcov",
+            "version": "1.0.11",
+            "require": []
+        },
+        {
+            "name": "ext-zend-opcache",
+            "version": "8.2.14",
+            "require": []
+        },
+        {
+            "name": "ext-xdebug",
+            "version": "3.3.1",
+            "require": []
+        },
+        {
+            "name": "lib-date-timelib",
+            "version": "2022.10",
+            "require": []
+        },
+        {
+            "name": "lib-date-zoneinfo",
+            "version": "2023.3",
+            "require": []
+        },
+        {
+            "name": "lib-libxml",
+            "version": "2.9.13",
+            "require": []
+        },
+        {
+            "name": "lib-openssl",
+            "version": "3.2.0",
+            "require": []
+        },
+        {
+            "name": "lib-pcre",
+            "version": "10.42",
+            "require": []
+        },
+        {
+            "name": "lib-pcre-unicode",
+            "version": "14.0.0",
+            "require": []
+        },
+        {
+            "name": "lib-sqlite3-sqlite",
+            "version": "3.44.2",
+            "require": []
+        },
+        {
+            "name": "lib-zlib",
+            "version": "1.2.12",
+            "require": []
+        },
+        {
+            "name": "lib-bz2",
+            "version": "1.0.8",
+            "require": []
+        },
+        {
+            "name": "lib-curl",
+            "version": "8.5.0",
+            "require": []
+        },
+        {
+            "name": "lib-curl-securetransport",
+            "version": "3.2.0",
+            "require": []
+        },
+        {
+            "name": "lib-curl-libssh2",
+            "version": "1.11.0",
+            "require": []
+        },
+        {
+            "name": "lib-curl-zlib",
+            "version": "1.2.12",
+            "require": []
+        },
+        {
+            "name": "lib-fileinfo-libmagic",
+            "version": "540",
+            "require": []
+        },
+        {
+            "name": "lib-gd",
+            "version": "2.3.3",
+            "require": []
+        },
+        {
+            "name": "lib-gmp",
+            "version": "6.3.0",
+            "require": []
+        },
+        {
+            "name": "lib-iconv",
+            "version": "1.11",
+            "require": []
+        },
+        {
+            "name": "lib-icu",
+            "version": "73.2",
+            "require": []
+        },
+        {
+            "name": "lib-icu-zoneinfo",
+            "version": "2023.3",
+            "require": []
+        },
+        {
+            "name": "lib-icu-cldr",
+            "version": "43.1",
+            "require": []
+        },
+        {
+            "name": "lib-icu-unicode",
+            "version": "15.0.0",
+            "require": []
+        },
+        {
+            "name": "lib-ldap-openldap",
+            "version": "2.6.6",
+            "require": []
+        },
+        {
+            "name": "lib-mbstring-libmbfl",
+            "version": "1.3.2",
+            "require": []
+        },
+        {
+            "name": "lib-mbstring-oniguruma",
+            "version": "6.9.9",
+            "require": []
+        },
+        {
+            "name": "lib-pdo_pgsql-libpq",
+            "version": "16.1",
+            "require": []
+        },
+        {
+            "name": "lib-pdo_sqlite-sqlite",
+            "version": "3.44.2",
+            "require": []
+        },
+        {
+            "name": "lib-pgsql-libpq",
+            "version": "16.1",
+            "require": []
+        },
+        {
+            "name": "lib-libsodium",
+            "version": "1.0.19",
+            "require": []
+        },
+        {
+            "name": "lib-libxslt",
+            "version": "1.1.35",
+            "require": []
+        },
+        {
+            "name": "lib-libxslt-libxml",
+            "version": "2.9.13",
+            "require": []
+        },
+        {
+            "name": "lib-zip-libzip",
+            "version": "1.10.1",
+            "require": []
+        }
+    ],
+    [
+        {
+            "name": "thunder/taas-assets",
+            "version": "9999999-dev",
+            "require": {
+                "phpstan/extension-installer": {}
+            }
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-main",
+            "require": {
+                "phpstan/extension-installer": {}
+            }
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-add-db-driver-env",
+            "require": []
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-christian.fritsch-main-patch-20494",
+            "require": []
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-christian.fritsch-main-patch-63407",
+            "require": {
+                "phpstan/extension-installer": {}
+            }
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-extension-installer-ignore",
+            "require": []
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-phpstan-rule",
+            "require": []
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-task/1539-multisite-test-project",
+            "require": {
+                "phpstan/extension-installer": {}
+            }
+        }
+    ],
+    [
+        {
+            "name": "dpp/composer-plugin",
+            "version": "dev-main",
+            "require": {
+                "composer-plugin-api": {}
+            }
+        }
+    ],
+    [
+        {
+            "name": "dpp/version",
+            "version": "1.0.0",
+            "require": []
+        },
+        {
+            "name": "dpp/version",
+            "version": "2.0.0",
+            "require": []
+        },
+        {
+            "name": "dpp/version",
+            "version": "dev-1.x",
+            "require": []
+        },
+        {
+            "name": "dpp/version",
+            "version": "dev-2.x",
+            "require": []
+        }
+    ],
+    [
+        {
+            "name": "asm89/stack-cors",
+            "version": "1.3.0",
+            "require": {
+                "php": {},
+                "symfony/http-foundation": {},
+                "symfony/http-kernel": {}
+            }
+        },
+        {
+            "name": "caxy/php-htmldiff",
+            "version": "v0.1.14",
+            "require": {
+                "ext-dom": {},
+                "ext-mbstring": {},
+                "ezyang/htmlpurifier": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "chi-teck/drupal-code-generator",
+            "version": "2.6.2",
+            "require": {
+                "ext-json": {},
+                "php": {},
+                "psr/log": {},
+                "symfony/console": {},
+                "symfony/filesystem": {},
+                "symfony/polyfill-php80": {},
+                "symfony/string": {},
+                "twig/twig": {}
+            }
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.12.0",
+            "require": {
+                "composer-plugin-api": {}
+            }
+        },
+        {
+            "name": "composer/semver",
+            "version": "3.3.2",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "consolidation/annotated-command",
+            "version": "4.9.1",
+            "require": {
+                "consolidation/output-formatters": {},
+                "php": {},
+                "psr/log": {},
+                "symfony/console": {},
+                "symfony/event-dispatcher": {},
+                "symfony/finder": {}
+            }
+        },
+        {
+            "name": "consolidation/config",
+            "version": "2.1.2",
+            "require": {
+                "dflydev/dot-access-data": {},
+                "grasmash/expander": {},
+                "php": {},
+                "symfony/event-dispatcher": {}
+            }
+        },
+        {
+            "name": "consolidation/filter-via-dot-access-data",
+            "version": "2.0.2",
+            "require": {
+                "dflydev/dot-access-data": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "consolidation/log",
+            "version": "2.1.1",
+            "require": {
+                "php": {},
+                "psr/log": {},
+                "symfony/console": {}
+            }
+        },
+        {
+            "name": "consolidation/output-formatters",
+            "version": "4.3.1",
+            "require": {
+                "dflydev/dot-access-data": {},
+                "php": {},
+                "symfony/console": {},
+                "symfony/finder": {}
+            }
+        },
+        {
+            "name": "consolidation/robo",
+            "version": "4.0.2",
+            "require": {
+                "consolidation/annotated-command": {},
+                "consolidation/config": {},
+                "consolidation/log": {},
+                "consolidation/output-formatters": {},
+                "consolidation/self-update": {},
+                "league/container": {},
+                "php": {},
+                "symfony/console": {},
+                "symfony/event-dispatcher": {},
+                "symfony/filesystem": {},
+                "symfony/finder": {},
+                "symfony/process": {},
+                "symfony/yaml": {}
+            }
+        },
+        {
+            "name": "consolidation/self-update",
+            "version": "2.1.0",
+            "require": {
+                "composer/semver": {},
+                "php": {},
+                "symfony/console": {},
+                "symfony/filesystem": {}
+            }
+        },
+        {
+            "name": "consolidation/site-alias",
+            "version": "3.1.7",
+            "require": {
+                "consolidation/config": {},
+                "php": {},
+                "symfony/filesystem": {},
+                "symfony/finder": {},
+                "webmozart/path-util": {}
+            }
+        },
+        {
+            "name": "consolidation/site-process",
+            "version": "4.2.1",
+            "require": {
+                "consolidation/config": {},
+                "consolidation/site-alias": {},
+                "php": {},
+                "symfony/console": {},
+                "symfony/process": {}
+            }
+        },
+        {
+            "name": "cweagans/composer-patches",
+            "version": "1.7.3",
+            "require": {
+                "composer-plugin-api": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "dflydev/dot-access-data",
+            "version": "v3.0.2",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "doctrine/annotations",
+            "version": "1.14.3",
+            "require": {
+                "doctrine/lexer": {},
+                "ext-tokenizer": {},
+                "php": {},
+                "psr/cache": {}
+            }
+        },
+        {
+            "name": "doctrine/deprecations",
+            "version": "v1.1.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "2.1.0",
+            "require": {
+                "doctrine/deprecations": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "doctrine/reflection",
+            "version": "1.2.3",
+            "require": {
+                "doctrine/annotations": {},
+                "ext-tokenizer": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "dpp/version",
+            "version": "1.0.0",
+            "require": []
+        },
+        {
+            "name": "drupal/access_unpublished",
+            "version": "1.5.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/admin_toolbar",
+            "version": "3.4.1",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/adsense",
+            "version": "1.3.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/advancedqueue",
+            "version": "1.0.0-rc7",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/autofill",
+            "version": "1.1.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/autosave_form",
+            "version": "1.4.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/better_normalizers",
+            "version": "1.0.0-beta5",
+            "require": {
+                "drupal/core": {},
+                "drupal/hal": {}
+            }
+        },
+        {
+            "name": "drupal/blazy",
+            "version": "2.15.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/checklistapi",
+            "version": "2.1.2",
+            "require": {
+                "drupal/core": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "drupal/config_selector",
+            "version": "2.2.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/config_update",
+            "version": "1.7.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/content_lock",
+            "version": "2.3.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/core",
+            "version": "9.5.9",
+            "require": {
+                "asm89/stack-cors": {},
+                "composer/semver": {},
+                "doctrine/annotations": {},
+                "doctrine/reflection": {},
+                "egulias/email-validator": {},
+                "ext-date": {},
+                "ext-dom": {},
+                "ext-filter": {},
+                "ext-gd": {},
+                "ext-hash": {},
+                "ext-json": {},
+                "ext-pcre": {},
+                "ext-pdo": {},
+                "ext-session": {},
+                "ext-simplexml": {},
+                "ext-spl": {},
+                "ext-tokenizer": {},
+                "ext-xml": {},
+                "guzzlehttp/guzzle": {},
+                "laminas/laminas-feed": {},
+                "longwave/laminas-diactoros": {},
+                "masterminds/html5": {},
+                "pear/archive_tar": {},
+                "php": {},
+                "psr/log": {},
+                "stack/builder": {},
+                "symfony-cmf/routing": {},
+                "symfony/console": {},
+                "symfony/dependency-injection": {},
+                "symfony/event-dispatcher": {},
+                "symfony/http-foundation": {},
+                "symfony/http-kernel": {},
+                "symfony/mime": {},
+                "symfony/polyfill-iconv": {},
+                "symfony/polyfill-php80": {},
+                "symfony/process": {},
+                "symfony/psr-http-message-bridge": {},
+                "symfony/routing": {},
+                "symfony/serializer": {},
+                "symfony/translation": {},
+                "symfony/validator": {},
+                "symfony/yaml": {},
+                "twig/twig": {},
+                "typo3/phar-stream-wrapper": {}
+            }
+        },
+        {
+            "name": "drupal/core-composer-scaffold",
+            "version": "9.5.9",
+            "require": {
+                "composer-plugin-api": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "drupal/crop",
+            "version": "2.3.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/ctools",
+            "version": "3.14.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/default_content",
+            "version": "2.0.0-alpha2",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/diff",
+            "version": "1.1.0",
+            "require": {
+                "drupal/core": {},
+                "mkalkbrenner/php-htmldiff-advanced": {}
+            }
+        },
+        {
+            "name": "drupal/dropzonejs",
+            "version": "2.8.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/empty_fields",
+            "version": "1.0.0-beta2",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/entity_browser",
+            "version": "2.6.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/entity_reference_actions",
+            "version": "1.0.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/entity_reference_revisions",
+            "version": "1.10.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/facets",
+            "version": "2.0.6",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/field_group",
+            "version": "3.4.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/focal_point",
+            "version": "1.5.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/crop": {}
+            }
+        },
+        {
+            "name": "drupal/google_analytics",
+            "version": "2.5.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/graphql",
+            "version": "4.5.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/typed_data": {},
+                "php": {},
+                "webonyx/graphql-php": {}
+            }
+        },
+        {
+            "name": "drupal/hal",
+            "version": "1.0.3",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/inline_entity_form",
+            "version": "1.0.0-rc15",
+            "require": {
+                "drupal/core": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "drupal/ivw_integration",
+            "version": "2.5.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/token": {}
+            }
+        },
+        {
+            "name": "drupal/length_indicator",
+            "version": "1.2.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/linkit",
+            "version": "6.0.0-rc1",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/liveblog",
+            "version": "1.3.0-alpha15",
+            "require": {
+                "drupal/core": {},
+                "drupal/hal": {},
+                "drupal/simple_gmap": {},
+                "pusher/pusher-php-server": {}
+            }
+        },
+        {
+            "name": "drupal/locale_deploy",
+            "version": "1.0.0-beta2",
+            "require": {
+                "drupal/core": {},
+                "drupal/potx": {},
+                "drush/drush": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "drupal/media_entity_instagram",
+            "version": "3.0.8",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/media_entity_pinterest",
+            "version": "2.6.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/media_entity_slideshow",
+            "version": "2.5.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/media_entity_twitter",
+            "version": "2.9.0",
+            "require": {
+                "drupal/core": {},
+                "j7mbo/twitter-api-php": {}
+            }
+        },
+        {
+            "name": "drupal/media_expire",
+            "version": "2.6.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/media_file_delete",
+            "version": "1.3.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/metatag",
+            "version": "1.25.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/token": {}
+            }
+        },
+        {
+            "name": "drupal/metatag_async_widget",
+            "version": "1.1.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/metatag": {}
+            }
+        },
+        {
+            "name": "drupal/paragraphs",
+            "version": "1.15.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/entity_reference_revisions": {}
+            }
+        },
+        {
+            "name": "drupal/paragraphs_features",
+            "version": "1.16.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/paragraphs": {}
+            }
+        },
+        {
+            "name": "drupal/paragraphs_paste",
+            "version": "2.0.0-beta6",
+            "require": {
+                "drupal/core": {},
+                "drupal/paragraphs": {},
+                "ext-json": {},
+                "netcarver/textile": {}
+            }
+        },
+        {
+            "name": "drupal/password_policy",
+            "version": "4.0.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/pathauto",
+            "version": "1.11.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/ctools": {},
+                "drupal/token": {}
+            }
+        },
+        {
+            "name": "drupal/potx",
+            "version": "1.0.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/redirect",
+            "version": "1.8.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/responsive_preview",
+            "version": "1.1.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/scheduler",
+            "version": "2.0.0-rc8",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/scheduler_content_moderation_integration",
+            "version": "2.0.0-beta1",
+            "require": {
+                "drupal/core": {},
+                "drupal/scheduler": {}
+            }
+        },
+        {
+            "name": "drupal/schema_metatag",
+            "version": "2.4.0",
+            "require": {
+                "drupal/core": {},
+                "drupal/metatag": {}
+            }
+        },
+        {
+            "name": "drupal/search_api",
+            "version": "1.29.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/search_api_mark_outdated",
+            "version": "1.0.0-beta2",
+            "require": {
+                "drupal/core": {},
+                "drupal/search_api": {}
+            }
+        },
+        {
+            "name": "drupal/select2",
+            "version": "1.15.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/shariff",
+            "version": "1.7.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/simple_gmap",
+            "version": "2.0.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/simple_sitemap",
+            "version": "3.11.0",
+            "require": {
+                "drupal/core": {},
+                "ext-xmlwriter": {}
+            }
+        },
+        {
+            "name": "drupal/slick",
+            "version": "2.8.0",
+            "require": {
+                "drupal/blazy": {},
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/thunder_admin",
+            "version": "4.0.5",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/token",
+            "version": "1.11.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/typed_data",
+            "version": "1.0.0-beta2",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/update_helper",
+            "version": "3.0.4",
+            "require": {
+                "chi-teck/drupal-code-generator": {},
+                "drupal/config_update": {},
+                "drupal/core": {},
+                "symfony/console": {}
+            }
+        },
+        {
+            "name": "drupal/vgwort",
+            "version": "2.0.0-beta5",
+            "require": {
+                "drupal/advancedqueue": {},
+                "drupal/core": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "drupal/views_bulk_edit",
+            "version": "2.8.0",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drupal/views_bulk_operations",
+            "version": "4.2.4",
+            "require": {
+                "drupal/core": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "drupal/xymatic",
+            "version": "1.0.0-beta5",
+            "require": {
+                "drupal/core": {}
+            }
+        },
+        {
+            "name": "drush/drush",
+            "version": "11.5.1",
+            "require": {
+                "chi-teck/drupal-code-generator": {},
+                "composer/semver": {},
+                "consolidation/annotated-command": {},
+                "consolidation/config": {},
+                "consolidation/filter-via-dot-access-data": {},
+                "consolidation/robo": {},
+                "consolidation/site-alias": {},
+                "consolidation/site-process": {},
+                "enlightn/security-checker": {},
+                "ext-dom": {},
+                "guzzlehttp/guzzle": {},
+                "league/container": {},
+                "php": {},
+                "psy/psysh": {},
+                "symfony/event-dispatcher": {},
+                "symfony/filesystem": {},
+                "symfony/finder": {},
+                "symfony/polyfill-php80": {},
+                "symfony/var-dumper": {},
+                "symfony/yaml": {},
+                "webflo/drupal-finder": {}
+            }
+        },
+        {
+            "name": "egulias/email-validator",
+            "version": "3.2.5",
+            "require": {
+                "doctrine/lexer": {},
+                "php": {},
+                "symfony/polyfill-intl-idn": {}
+            }
+        },
+        {
+            "name": "enlightn/security-checker",
+            "version": "v1.10.0",
+            "require": {
+                "ext-json": {},
+                "guzzlehttp/guzzle": {},
+                "php": {},
+                "symfony/console": {},
+                "symfony/finder": {},
+                "symfony/process": {},
+                "symfony/yaml": {}
+            }
+        },
+        {
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.16.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "graham-campbell/result-type",
+            "version": "v1.1.1",
+            "require": {
+                "php": {},
+                "phpoption/phpoption": {}
+            }
+        },
+        {
+            "name": "grasmash/expander",
+            "version": "2.0.3",
+            "require": {
+                "dflydev/dot-access-data": {},
+                "php": {},
+                "psr/log": {}
+            }
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.5.8",
+            "require": {
+                "ext-json": {},
+                "guzzlehttp/promises": {},
+                "guzzlehttp/psr7": {},
+                "php": {},
+                "symfony/polyfill-intl-idn": {}
+            }
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "1.5.3",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.9.1",
+            "require": {
+                "php": {},
+                "psr/http-message": {},
+                "ralouphie/getallheaders": {}
+            }
+        },
+        {
+            "name": "j7mbo/twitter-api-php",
+            "version": "1.0.6",
+            "require": {
+                "ext-curl": {}
+            }
+        },
+        {
+            "name": "laminas/laminas-escaper",
+            "version": "2.12.0",
+            "require": {
+                "ext-ctype": {},
+                "ext-mbstring": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "laminas/laminas-feed",
+            "version": "2.20.0",
+            "require": {
+                "ext-dom": {},
+                "ext-libxml": {},
+                "laminas/laminas-escaper": {},
+                "laminas/laminas-servicemanager": {},
+                "laminas/laminas-stdlib": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "laminas/laminas-servicemanager",
+            "version": "3.21.0",
+            "require": {
+                "laminas/laminas-stdlib": {},
+                "php": {},
+                "psr/container": {}
+            }
+        },
+        {
+            "name": "laminas/laminas-stdlib",
+            "version": "3.17.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "league/container",
+            "version": "4.2.0",
+            "require": {
+                "php": {},
+                "psr/container": {}
+            }
+        },
+        {
+            "name": "longwave/laminas-diactoros",
+            "version": "2.14.2",
+            "require": {
+                "php": {},
+                "psr/http-factory": {},
+                "psr/http-message": {}
+            }
+        },
+        {
+            "name": "masterminds/html5",
+            "version": "2.8.0",
+            "require": {
+                "ext-dom": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "mkalkbrenner/php-htmldiff-advanced",
+            "version": "0.0.8",
+            "require": {
+                "caxy/php-htmldiff": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "netcarver/textile",
+            "version": "v3.8.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v4.15.5",
+            "require": {
+                "ext-tokenizer": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "npm-asset/blazy",
+            "version": "1.8.2",
+            "require": []
+        },
+        {
+            "name": "npm-asset/dropzone",
+            "version": "5.9.3",
+            "require": []
+        },
+        {
+            "name": "npm-asset/exif-js",
+            "version": "2.3.0",
+            "require": []
+        },
+        {
+            "name": "npm-asset/fortawesome--fontawesome-free",
+            "version": "5.15.4",
+            "require": []
+        },
+        {
+            "name": "npm-asset/select2",
+            "version": "4.0.13",
+            "require": []
+        },
+        {
+            "name": "npm-asset/shariff",
+            "version": "3.2.1",
+            "require": {
+                "npm-asset/fortawesome--fontawesome-free": {},
+                "npm-asset/jquery": {}
+            }
+        },
+        {
+            "name": "npm-asset/slick-carousel",
+            "version": "1.8.1",
+            "require": []
+        },
+        {
+            "name": "oomphinc/composer-installers-extender",
+            "version": "2.0.1",
+            "require": {
+                "composer-plugin-api": {},
+                "composer/installers": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "paragonie/random_compat",
+            "version": "v9.99.100",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "paragonie/sodium_compat",
+            "version": "v1.20.0",
+            "require": {
+                "paragonie/random_compat": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "pear/archive_tar",
+            "version": "1.4.14",
+            "require": {
+                "pear/pear-core-minimal": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "pear/console_getopt",
+            "version": "v1.4.3",
+            "require": []
+        },
+        {
+            "name": "pear/pear-core-minimal",
+            "version": "v1.10.13",
+            "require": {
+                "pear/console_getopt": {},
+                "pear/pear_exception": {}
+            }
+        },
+        {
+            "name": "pear/pear_exception",
+            "version": "v1.0.2",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpoption/phpoption",
+            "version": "1.9.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpstan/extension-installer",
+            "version": "1.3.1",
+            "require": {
+                "composer-plugin-api": {},
+                "php": {},
+                "phpstan/phpstan": {}
+            }
+        },
+        {
+            "name": "phpstan/phpstan",
+            "version": "1.10.15",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "psr/cache",
+            "version": "3.0.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "psr/container",
+            "version": "1.1.2",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.0.2",
+            "require": {
+                "php": {},
+                "psr/http-message": {}
+            }
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.4",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "psy/psysh",
+            "version": "v0.11.18",
+            "require": {
+                "ext-json": {},
+                "ext-tokenizer": {},
+                "nikic/php-parser": {},
+                "php": {},
+                "symfony/console": {},
+                "symfony/var-dumper": {}
+            }
+        },
+        {
+            "name": "pusher/pusher-php-server",
+            "version": "v4.1.5",
+            "require": {
+                "ext-curl": {},
+                "paragonie/sodium_compat": {},
+                "php": {},
+                "psr/log": {}
+            }
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "stack/builder",
+            "version": "v1.0.6",
+            "require": {
+                "php": {},
+                "symfony/http-foundation": {},
+                "symfony/http-kernel": {}
+            }
+        },
+        {
+            "name": "symfony-cmf/routing",
+            "version": "2.3.4",
+            "require": {
+                "php": {},
+                "psr/log": {},
+                "symfony/http-kernel": {},
+                "symfony/routing": {}
+            }
+        },
+        {
+            "name": "symfony/console",
+            "version": "v4.4.49",
+            "require": {
+                "php": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php73": {},
+                "symfony/polyfill-php80": {},
+                "symfony/service-contracts": {}
+            }
+        },
+        {
+            "name": "symfony/debug",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "psr/log": {}
+            }
+        },
+        {
+            "name": "symfony/dependency-injection",
+            "version": "v4.4.49",
+            "require": {
+                "php": {},
+                "psr/container": {},
+                "symfony/polyfill-php80": {},
+                "symfony/service-contracts": {}
+            }
+        },
+        {
+            "name": "symfony/deprecation-contracts",
+            "version": "v3.3.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "symfony/error-handler",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "psr/log": {},
+                "symfony/debug": {},
+                "symfony/var-dumper": {}
+            }
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "symfony/event-dispatcher-contracts": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/event-dispatcher-contracts",
+            "version": "v1.1.13",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v4.4.42",
+            "require": {
+                "php": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/http-client-contracts",
+            "version": "v2.5.2",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v4.4.49",
+            "require": {
+                "php": {},
+                "symfony/mime": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "v4.4.50",
+            "require": {
+                "php": {},
+                "psr/log": {},
+                "symfony/error-handler": {},
+                "symfony/event-dispatcher": {},
+                "symfony/http-client-contracts": {},
+                "symfony/http-foundation": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-php73": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/mime",
+            "version": "v5.4.13",
+            "require": {
+                "php": {},
+                "symfony/deprecation-contracts": {},
+                "symfony/polyfill-intl-idn": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/polyfill-intl-grapheme",
+            "version": "v1.27.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "symfony/polyfill-intl-idn",
+            "version": "v1.27.0",
+            "require": {
+                "php": {},
+                "symfony/polyfill-intl-normalizer": {},
+                "symfony/polyfill-php72": {}
+            }
+        },
+        {
+            "name": "symfony/polyfill-intl-normalizer",
+            "version": "v1.27.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "symfony/process",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/psr-http-message-bridge",
+            "version": "v2.1.4",
+            "require": {
+                "php": {},
+                "psr/http-message": {},
+                "symfony/http-foundation": {}
+            }
+        },
+        {
+            "name": "symfony/routing",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/serializer",
+            "version": "v4.4.47",
+            "require": {
+                "php": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/service-contracts",
+            "version": "v2.5.2",
+            "require": {
+                "php": {},
+                "psr/container": {},
+                "symfony/deprecation-contracts": {}
+            }
+        },
+        {
+            "name": "symfony/string",
+            "version": "v6.3.0",
+            "require": {
+                "php": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-intl-grapheme": {},
+                "symfony/polyfill-intl-normalizer": {},
+                "symfony/polyfill-mbstring": {}
+            }
+        },
+        {
+            "name": "symfony/translation",
+            "version": "v4.4.47",
+            "require": {
+                "php": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php80": {},
+                "symfony/translation-contracts": {}
+            }
+        },
+        {
+            "name": "symfony/translation-contracts",
+            "version": "v2.5.2",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "symfony/validator",
+            "version": "v4.4.48",
+            "require": {
+                "php": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php80": {},
+                "symfony/translation-contracts": {}
+            }
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v5.4.24",
+            "require": {
+                "php": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v4.4.45",
+            "require": {
+                "php": {},
+                "symfony/polyfill-ctype": {}
+            }
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "9999999-dev",
+            "require": {
+                "phpstan/extension-installer": {}
+            }
+        },
+        {
+            "name": "thunder/taas-assets",
+            "version": "dev-main",
+            "require": {
+                "phpstan/extension-installer": {}
+            }
+        },
+        {
+            "name": "thunder/thunder-distribution",
+            "version": "6.5.5",
+            "require": {
+                "cweagans/composer-patches": {},
+                "drupal/access_unpublished": {},
+                "drupal/admin_toolbar": {},
+                "drupal/adsense": {},
+                "drupal/autofill": {},
+                "drupal/autosave_form": {},
+                "drupal/better_normalizers": {},
+                "drupal/blazy": {},
+                "drupal/checklistapi": {},
+                "drupal/config_selector": {},
+                "drupal/config_update": {},
+                "drupal/content_lock": {},
+                "drupal/core": {},
+                "drupal/crop": {},
+                "drupal/ctools": {},
+                "drupal/default_content": {},
+                "drupal/diff": {},
+                "drupal/dropzonejs": {},
+                "drupal/empty_fields": {},
+                "drupal/entity_browser": {},
+                "drupal/entity_reference_actions": {},
+                "drupal/entity_reference_revisions": {},
+                "drupal/facets": {},
+                "drupal/field_group": {},
+                "drupal/focal_point": {},
+                "drupal/google_analytics": {},
+                "drupal/graphql": {},
+                "drupal/inline_entity_form": {},
+                "drupal/ivw_integration": {},
+                "drupal/length_indicator": {},
+                "drupal/linkit": {},
+                "drupal/liveblog": {},
+                "drupal/media_entity_instagram": {},
+                "drupal/media_entity_pinterest": {},
+                "drupal/media_entity_slideshow": {},
+                "drupal/media_entity_twitter": {},
+                "drupal/media_expire": {},
+                "drupal/media_file_delete": {},
+                "drupal/metatag": {},
+                "drupal/metatag_async_widget": {},
+                "drupal/paragraphs": {},
+                "drupal/paragraphs_features": {},
+                "drupal/paragraphs_paste": {},
+                "drupal/password_policy": {},
+                "drupal/pathauto": {},
+                "drupal/redirect": {},
+                "drupal/responsive_preview": {},
+                "drupal/scheduler": {},
+                "drupal/scheduler_content_moderation_integration": {},
+                "drupal/schema_metatag": {},
+                "drupal/search_api": {},
+                "drupal/search_api_mark_outdated": {},
+                "drupal/select2": {},
+                "drupal/shariff": {},
+                "drupal/simple_sitemap": {},
+                "drupal/slick": {},
+                "drupal/thunder_admin": {},
+                "drupal/token": {},
+                "drupal/update_helper": {},
+                "drupal/vgwort": {},
+                "drupal/views_bulk_edit": {},
+                "drupal/views_bulk_operations": {},
+                "drupal/xymatic": {},
+                "npm-asset/blazy": {},
+                "npm-asset/dropzone": {},
+                "npm-asset/exif-js": {},
+                "npm-asset/select2": {},
+                "npm-asset/shariff": {},
+                "npm-asset/slick-carousel": {},
+                "php": {},
+                "pusher/pusher-php-server": {}
+            }
+        },
+        {
+            "name": "twig/twig",
+            "version": "v2.15.5",
+            "require": {
+                "php": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php72": {}
+            }
+        },
+        {
+            "name": "typo3/phar-stream-wrapper",
+            "version": "v3.1.7",
+            "require": {
+                "ext-json": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v5.5.0",
+            "require": {
+                "ext-pcre": {},
+                "graham-campbell/result-type": {},
+                "php": {},
+                "phpoption/phpoption": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "webflo/drupal-finder",
+            "version": "1.2.2",
+            "require": {
+                "ext-json": {}
+            }
+        },
+        {
+            "name": "webmozart/assert",
+            "version": "1.11.0",
+            "require": {
+                "ext-ctype": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "webmozart/path-util",
+            "version": "2.3.0",
+            "require": {
+                "php": {},
+                "webmozart/assert": {}
+            }
+        },
+        {
+            "name": "webonyx/graphql-php",
+            "version": "v14.11.9",
+            "require": {
+                "ext-json": {},
+                "ext-mbstring": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "behat/mink",
+            "version": "v1.10.0",
+            "require": {
+                "php": {},
+                "symfony/css-selector": {}
+            }
+        },
+        {
+            "name": "behat/mink-selenium2-driver",
+            "version": "v1.6.0",
+            "require": {
+                "behat/mink": {},
+                "ext-json": {},
+                "instaclick/php-webdriver": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "composer/ca-bundle",
+            "version": "1.3.5",
+            "require": {
+                "ext-openssl": {},
+                "ext-pcre": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "composer/composer",
+            "version": "2.2.21",
+            "require": {
+                "composer/ca-bundle": {},
+                "composer/metadata-minifier": {},
+                "composer/pcre": {},
+                "composer/semver": {},
+                "composer/spdx-licenses": {},
+                "composer/xdebug-handler": {},
+                "justinrainbow/json-schema": {},
+                "php": {},
+                "psr/log": {},
+                "react/promise": {},
+                "seld/jsonlint": {},
+                "seld/phar-utils": {},
+                "symfony/console": {},
+                "symfony/filesystem": {},
+                "symfony/finder": {},
+                "symfony/process": {}
+            }
+        },
+        {
+            "name": "composer/metadata-minifier",
+            "version": "1.0.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "composer/pcre",
+            "version": "1.0.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "composer/spdx-licenses",
+            "version": "1.5.7",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "composer/xdebug-handler",
+            "version": "3.0.3",
+            "require": {
+                "composer/pcre": {},
+                "php": {},
+                "psr/log": {}
+            }
+        },
+        {
+            "name": "dealerdirect/phpcodesniffer-composer-installer",
+            "version": "v0.7.2",
+            "require": {
+                "composer-plugin-api": {},
+                "php": {},
+                "squizlabs/php_codesniffer": {}
+            }
+        },
+        {
+            "name": "doctrine/instantiator",
+            "version": "2.0.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "drupal/coder",
+            "version": "8.3.18",
+            "require": {
+                "dealerdirect/phpcodesniffer-composer-installer": {},
+                "ext-mbstring": {},
+                "php": {},
+                "sirbrillig/phpcs-variable-analysis": {},
+                "slevomat/coding-standard": {},
+                "squizlabs/php_codesniffer": {},
+                "symfony/yaml": {}
+            }
+        },
+        {
+            "name": "drupal/core-dev",
+            "version": "9.5.9",
+            "require": {
+                "behat/mink": {},
+                "behat/mink-selenium2-driver": {},
+                "composer/composer": {},
+                "drupal/coder": {},
+                "easyrdf/easyrdf": {},
+                "friends-of-behat/mink-browserkit-driver": {},
+                "instaclick/php-webdriver": {},
+                "justinrainbow/json-schema": {},
+                "mikey179/vfsstream": {},
+                "phpspec/prophecy": {},
+                "phpunit/phpunit": {},
+                "symfony/browser-kit": {},
+                "symfony/css-selector": {},
+                "symfony/dom-crawler": {},
+                "symfony/error-handler": {},
+                "symfony/filesystem": {},
+                "symfony/finder": {},
+                "symfony/lock": {},
+                "symfony/phpunit-bridge": {},
+                "symfony/var-dumper": {}
+            }
+        },
+        {
+            "name": "easyrdf/easyrdf",
+            "version": "1.1.1",
+            "require": {
+                "ext-dom": {},
+                "ext-mbstring": {},
+                "ext-pcre": {},
+                "ext-xmlreader": {},
+                "lib-libxml": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "friends-of-behat/mink-browserkit-driver",
+            "version": "v1.6.1",
+            "require": {
+                "behat/mink": {},
+                "php": {},
+                "symfony/browser-kit": {},
+                "symfony/dom-crawler": {}
+            }
+        },
+        {
+            "name": "instaclick/php-webdriver",
+            "version": "1.4.16",
+            "require": {
+                "ext-curl": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "justinrainbow/json-schema",
+            "version": "5.2.12",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "mglaman/phpstan-drupal",
+            "version": "1.1.34",
+            "require": {
+                "php": {},
+                "phpstan/phpstan": {},
+                "symfony/finder": {},
+                "symfony/yaml": {},
+                "webflo/drupal-finder": {}
+            }
+        },
+        {
+            "name": "mikey179/vfsstream",
+            "version": "v1.6.11",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "myclabs/deep-copy",
+            "version": "1.11.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "palantirnet/drupal-rector",
+            "version": "0.13.1",
+            "require": {
+                "rector/rector": {},
+                "webflo/drupal-finder": {}
+            }
+        },
+        {
+            "name": "phar-io/manifest",
+            "version": "2.0.3",
+            "require": {
+                "ext-dom": {},
+                "ext-phar": {},
+                "ext-xmlwriter": {},
+                "phar-io/version": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "phar-io/version",
+            "version": "3.2.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpdocumentor/reflection-common",
+            "version": "2.2.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpdocumentor/reflection-docblock",
+            "version": "5.3.0",
+            "require": {
+                "ext-filter": {},
+                "php": {},
+                "phpdocumentor/reflection-common": {},
+                "phpdocumentor/type-resolver": {},
+                "webmozart/assert": {}
+            }
+        },
+        {
+            "name": "phpdocumentor/type-resolver",
+            "version": "1.7.2",
+            "require": {
+                "doctrine/deprecations": {},
+                "php": {},
+                "phpdocumentor/reflection-common": {},
+                "phpstan/phpdoc-parser": {}
+            }
+        },
+        {
+            "name": "phpspec/prophecy",
+            "version": "v1.17.0",
+            "require": {
+                "doctrine/instantiator": {},
+                "php": {},
+                "phpdocumentor/reflection-docblock": {},
+                "sebastian/comparator": {},
+                "sebastian/recursion-context": {}
+            }
+        },
+        {
+            "name": "phpspec/prophecy-phpunit",
+            "version": "v2.0.2",
+            "require": {
+                "php": {},
+                "phpspec/prophecy": {},
+                "phpunit/phpunit": {}
+            }
+        },
+        {
+            "name": "phpstan/phpdoc-parser",
+            "version": "1.21.3",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpstan/phpstan-deprecation-rules",
+            "version": "1.1.3",
+            "require": {
+                "php": {},
+                "phpstan/phpstan": {}
+            }
+        },
+        {
+            "name": "phpunit/php-code-coverage",
+            "version": "9.2.26",
+            "require": {
+                "ext-dom": {},
+                "ext-libxml": {},
+                "ext-xmlwriter": {},
+                "nikic/php-parser": {},
+                "php": {},
+                "phpunit/php-file-iterator": {},
+                "phpunit/php-text-template": {},
+                "sebastian/code-unit-reverse-lookup": {},
+                "sebastian/complexity": {},
+                "sebastian/environment": {},
+                "sebastian/lines-of-code": {},
+                "sebastian/version": {},
+                "theseer/tokenizer": {}
+            }
+        },
+        {
+            "name": "phpunit/php-file-iterator",
+            "version": "3.0.6",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpunit/php-invoker",
+            "version": "3.1.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpunit/php-text-template",
+            "version": "2.0.4",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpunit/php-timer",
+            "version": "5.0.3",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "phpunit/phpunit",
+            "version": "9.6.8",
+            "require": {
+                "doctrine/instantiator": {},
+                "ext-dom": {},
+                "ext-json": {},
+                "ext-libxml": {},
+                "ext-mbstring": {},
+                "ext-xml": {},
+                "ext-xmlwriter": {},
+                "myclabs/deep-copy": {},
+                "phar-io/manifest": {},
+                "phar-io/version": {},
+                "php": {},
+                "phpunit/php-code-coverage": {},
+                "phpunit/php-file-iterator": {},
+                "phpunit/php-invoker": {},
+                "phpunit/php-text-template": {},
+                "phpunit/php-timer": {},
+                "sebastian/cli-parser": {},
+                "sebastian/code-unit": {},
+                "sebastian/comparator": {},
+                "sebastian/diff": {},
+                "sebastian/environment": {},
+                "sebastian/exporter": {},
+                "sebastian/global-state": {},
+                "sebastian/object-enumerator": {},
+                "sebastian/resource-operations": {},
+                "sebastian/type": {},
+                "sebastian/version": {}
+            }
+        },
+        {
+            "name": "react/promise",
+            "version": "v2.10.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "rector/rector",
+            "version": "0.13.10",
+            "require": {
+                "php": {},
+                "phpstan/phpstan": {}
+            }
+        },
+        {
+            "name": "sebastian/cli-parser",
+            "version": "1.0.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/code-unit",
+            "version": "1.0.8",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/code-unit-reverse-lookup",
+            "version": "2.0.3",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/comparator",
+            "version": "4.0.8",
+            "require": {
+                "php": {},
+                "sebastian/diff": {},
+                "sebastian/exporter": {}
+            }
+        },
+        {
+            "name": "sebastian/complexity",
+            "version": "2.0.2",
+            "require": {
+                "nikic/php-parser": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/diff",
+            "version": "4.0.5",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/environment",
+            "version": "5.1.5",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/exporter",
+            "version": "4.0.5",
+            "require": {
+                "php": {},
+                "sebastian/recursion-context": {}
+            }
+        },
+        {
+            "name": "sebastian/global-state",
+            "version": "5.0.5",
+            "require": {
+                "php": {},
+                "sebastian/object-reflector": {},
+                "sebastian/recursion-context": {}
+            }
+        },
+        {
+            "name": "sebastian/lines-of-code",
+            "version": "1.0.3",
+            "require": {
+                "nikic/php-parser": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/object-enumerator",
+            "version": "4.0.4",
+            "require": {
+                "php": {},
+                "sebastian/object-reflector": {},
+                "sebastian/recursion-context": {}
+            }
+        },
+        {
+            "name": "sebastian/object-reflector",
+            "version": "2.0.4",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/recursion-context",
+            "version": "4.0.5",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/resource-operations",
+            "version": "3.0.3",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/type",
+            "version": "3.2.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sebastian/version",
+            "version": "3.0.2",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "seld/jsonlint",
+            "version": "1.10.0",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "seld/phar-utils",
+            "version": "1.2.1",
+            "require": {
+                "php": {}
+            }
+        },
+        {
+            "name": "sirbrillig/phpcs-variable-analysis",
+            "version": "v2.11.16",
+            "require": {
+                "php": {},
+                "squizlabs/php_codesniffer": {}
+            }
+        },
+        {
+            "name": "slevomat/coding-standard",
+            "version": "8.3.0",
+            "require": {
+                "dealerdirect/phpcodesniffer-composer-installer": {},
+                "php": {},
+                "phpstan/phpdoc-parser": {},
+                "squizlabs/php_codesniffer": {}
+            }
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "3.7.2",
+            "require": {
+                "ext-simplexml": {},
+                "ext-tokenizer": {},
+                "ext-xmlwriter": {},
+                "php": {}
+            }
+        },
+        {
+            "name": "symfony/browser-kit",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "symfony/dom-crawler": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v4.4.44",
+            "require": {
+                "php": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "v4.4.45",
+            "require": {
+                "php": {},
+                "symfony/polyfill-ctype": {},
+                "symfony/polyfill-mbstring": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/lock",
+            "version": "v4.4.46",
+            "require": {
+                "php": {},
+                "psr/log": {},
+                "symfony/polyfill-php80": {}
+            }
+        },
+        {
+            "name": "symfony/phpunit-bridge",
+            "version": "v5.4.23",
+            "require": {
+                "php": {},
+                "symfony/deprecation-contracts": {}
+            }
+        },
+        {
+            "name": "theseer/tokenizer",
+            "version": "1.2.1",
+            "require": {
+                "ext-dom": {},
+                "ext-tokenizer": {},
+                "ext-xmlwriter": {},
+                "php": {}
+            }
+        }
+    ]
+]
+
+--EXPECT--
+[
+    "asm89/stack-cors-1.3.0.0#b9c31def6a83f84b4d4a40d35996d375755f0e08",
+    "behat/mink-1.10.0.0#19e58905632e7cfdc5b2bafb9b950a3521af32c5",
+    "behat/mink-selenium2-driver-1.6.0.0#e5f8421654930da725499fb92983e6948c6f973e",
+    "bower-asset/spectrum-1.8.1.0#9aa028de7e8039c41ac792485a928edb97d4ac40",
+    "burdamagazinorg/burda_cmp-1.9999999.9999999.9999999-dev#531e25fbc7783eedb46868902dc08bc14726ea12 (alias of dev-8.x-1.x)",
+    "burdamagazinorg/burda_cmp-dev-8.x-1.x#531e25fbc7783eedb46868902dc08bc14726ea12",
+    "burdamagazinorg/custom_purge-1.0.0.0-alpha4#dca0172f50e7a2f742709ea2d3d81794b6735073",
+    "burdamagazinorg/dcx_integration-3.0.0.0-beta5#5e9fb7dc8ae6c480fdf84c1319a4b1f7f019aad2",
+    "burdamagazinorg/hm_newsletter-2.2.0.0#001bc985debd23d609d6c7d94406692b13dd4521",
+    "caxy/php-htmldiff-0.1.14.0#3f8ee7edda3d7c6d2e58a02d70a12d3242c84ea5",
+    "chi-teck/drupal-code-generator-2.6.2.0#22ed1cc02dc47814e8239de577da541e9b9bd980",
+    "cloudflare/sdk-1.1.6.0#6d9b4ddffed61abea260678d60c8704d873cc6ca",
+    "clue/stream-filter-1.6.0.0#d6169430c7731d8509da7aecd0af756a5747b78e",
+    "commerceguys/addressing-1.4.2.0#406c7b5f0fbe4f6a64155c0fe03b1adb34d01308",
+    "composer-2.6.6.0",
+    "composer-2.6.6.0",
+    "composer-plugin-api-2.6.0.0",
+    "composer-plugin-api-2.6.0.0",
+    "composer-runtime-api-2.2.2.0",
+    "composer-runtime-api-2.2.2.0",
+    "composer/ca-bundle-1.3.5.0#74780ccf8c19d6acb8d65c5f39cd72110e132bbd",
+    "composer/composer-2.2.21.0#978198befc71de0b18fc1fc5a472c03b184b504a",
+    "composer/installers-1.12.0.0#d20a64ed3c94748397ff5973488761b22f6d3f19",
+    "composer/metadata-minifier-1.0.0.0#c549d23829536f0d0e984aaabbf02af91f443207",
+    "composer/pcre-1.0.1.0#67a32d7d6f9f560b726ab25a061b38ff3a80c560",
+    "composer/semver-3.3.2.0#3953f23262f2bff1919fc82183ad9acb13ff62c9",
+    "composer/spdx-licenses-1.5.7.0#c848241796da2abf65837d51dce1fae55a960149",
+    "composer/xdebug-handler-3.0.3.0#ced299686f41dce890debac69273b47ffe98a40c",
+    "consolidation/annotated-command-4.9.1.0#e01152f698eff4cb5df3ebfe5e097ef335dbd3c9",
+    "consolidation/config-2.1.2.0#597f8d7fbeef801736250ec10c3e190569b1b0ae",
+    "consolidation/filter-via-dot-access-data-2.0.2.0#cb2eeba41f8e2e3c61698a5cf70ef048ff6c9d5b",
+    "consolidation/log-2.1.1.0#3ad08dc57e8aff9400111bad36beb0ed387fe6a9",
+    "consolidation/output-formatters-4.3.1.0#f65524e9ecd2bd0021c4b18710005caaa6dcbd86",
+    "consolidation/robo-4.0.2.0#ccf80963abf11bdb8e90659aa99a7449b21e9452",
+    "consolidation/self-update-2.1.0.0#714b09fdf0513f83292874bb12de0566066040c2",
+    "consolidation/site-alias-3.1.7.0#3b6519592c7e8557423f935806cd73adf69ed6c7",
+    "consolidation/site-process-4.2.1.0#ee3bf69001694b2117cc2f96c2ef70d8d45f1234",
+    "cweagans/composer-patches-1.7.3.0#e190d4466fe2b103a55467dfa83fc2fecfcaf2db",
+    "davedevelopment/stiphle-0.9.4.0#5d1c244f0525d265e231a65db538b74eb5483768",
+    "dealerdirect/phpcodesniffer-composer-installer-0.7.2.0#1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db",
+    "dflydev/dot-access-data-3.0.2.0#f41715465d65213d644d3141a6a93081be5d3549",
+    "digicol/dcx-sdk-php-2.0.1.0#91337e2c623c351d2cd0092aaf076990a3b4a7e9",
+    "doctrine/annotations-1.14.3.0#fb0d71a7393298a7b232cbf4c8b1f73f3ec3d5af",
+    "doctrine/collections-2.1.2.0#db8cda536a034337f7dd63febecc713d4957f9ee",
+    "doctrine/deprecations-1.1.0.0#8cffffb2218e01f3b370bf763e00e81697725259",
+    "doctrine/instantiator-2.0.0.0#c6222283fa3f4ac679f8b9ced9a4e23f163e80d0",
+    "doctrine/lexer-2.1.0.0#39ab8fcf5a51ce4b85ca97c7a7d033eb12831124",
+    "doctrine/reflection-1.2.3.0#1034e5e71f89978b80f9c1570e7226f6c3b9b6fb",
+    "dpp/dpp-project-dev-main",
+    "dpp/version-1.0.0.0",
+    "drupal/access_unpublished-1.5.0.0#8.x-1.5",
+    "drupal/ad_entity-1.3.0.0#8.x-1.3",
+    "drupal/address-1.12.0.0#8.x-1.12",
+    "drupal/admin_toolbar-3.4.1.0#3.4.1",
+    "drupal/adsense-1.3.0.0#8.x-1.3",
+    "drupal/advagg-4.1.0.0#8.x-4.1",
+    "drupal/advancedqueue-1.0.0.0-RC7#8.x-1.0-rc7",
+    "drupal/ajax_dependency-1.0.0.0#8.x-1.0",
+    "drupal/allowed_formats-1.5.0.0#8.x-1.5",
+    "drupal/amazon_paapi-1.1.5.0#1.1.5",
+    "drupal/amazon_product_widget-1.5.9.0#1.5.9",
+    "drupal/autofill-1.1.0.0#8.x-1.1",
+    "drupal/autosave_form-1.4.0.0#8.x-1.4",
+    "drupal/better_exposed_filters-5.2.0.0#8.x-5.2",
+    "drupal/better_normalizers-1.0.0.0-beta5#8.x-1.0-beta5",
+    "drupal/blazy-2.15.0.0#8.x-2.15",
+    "drupal/bootstrap-3.28.0.0#8.x-3.28",
+    "drupal/breakpoint_js_settings-1.0.0.0-RC3#8.x-1.0-rc3",
+    "drupal/checklistapi-2.1.2.0#2.1.2",
+    "drupal/ckeditor-1.0.1.0#1.0.1",
+    "drupal/cloudflare-1.0.0.0-beta3#8.x-1.0-beta3",
+    "drupal/coder-8.3.18.0#d5911f812b69ca3bda5524899bdd06b3b4e687ff",
+    "drupal/color_field-2.5.0.0#8.x-2.5",
+    "drupal/components-2.4.0.0#8.x-2.4",
+    "drupal/config_filter-1.10.0.0#8.x-1.10",
+    "drupal/config_ignore-2.4.0.0#8.x-2.4",
+    "drupal/config_selector-2.2.0.0#8.x-2.2",
+    "drupal/config_update-1.7.0.0#8.x-1.7",
+    "drupal/consumer_base_url-1.0.0.0-alpha3#1.0.0-alpha3",
+    "drupal/consumers-1.17.0.0#8.x-1.17",
+    "drupal/content_lock-2.3.0.0#8.x-2.3",
+    "drupal/convert_bundles-1.0.0.0-beta1#8.x-1.0-beta1",
+    "drupal/core-9.5.9.0#c3b194f9056a297f6d72e54056c818843cab9aba",
+    "drupal/core-composer-scaffold-9.5.9.0#08da8e59c6f1bd0b1a58d18f8addc0d937bbacc7",
+    "drupal/core-dev-9.5.9.0#60196e12909624e168c482660c0f5795df67a6d7",
+    "drupal/crop-2.3.0.0#8.x-2.3",
+    "drupal/csv_serialization-2.1.0.0#8.x-2.1",
+    "drupal/ctools-3.14.0.0#8.x-3.14",
+    "drupal/ctools_block-4.0.4.0",
+    "drupal/datalayer-1.0.0.0#8.x-1.0",
+    "drupal/default_content-2.0.0.0-alpha2#2.0.0-alpha2",
+    "drupal/diff-1.1.0.0#8.x-1.1",
+    "drupal/dropzonejs-2.8.0.0#8.x-2.8",
+    "drupal/editor_advanced_link-1.9.0.0#8.x-1.9",
+    "drupal/editor_file-1.7.0.0#8.x-1.7",
+    "drupal/embed-1.6.0.0#8.x-1.6",
+    "drupal/empty_fields-1.0.0.0-beta2#8.x-1.0-beta2",
+    "drupal/entity-1.4.0.0#8.x-1.4",
+    "drupal/entity_browser-2.6.0.0#8.x-2.6",
+    "drupal/entity_embed-1.3.0.0#8.x-1.3",
+    "drupal/entity_reference_actions-1.0.0.0#1.0.0",
+    "drupal/entity_reference_display-1.4.0.0#8.x-1.4",
+    "drupal/entity_reference_revisions-1.10.0.0#8.x-1.10",
+    "drupal/ersv-1.1.0.0#8.x-1.1",
+    "drupal/extlink-1.7.0.0#8.x-1.7",
+    "drupal/facets-2.0.6.0#2.0.6",
+    "drupal/field_formatter-3.0.0.0-RC2#3.0.0-rc2",
+    "drupal/field_group-3.4.0.0#8.x-3.4",
+    "drupal/file_mdm-2.5.0.0#8.x-2.5",
+    "drupal/focal_point-1.5.0.0#8.x-1.5",
+    "drupal/gdpr_video-1.1.0.0#1.1.0",
+    "drupal/geocoder-3.34.0.0#8.x-3.34",
+    "drupal/geofield-1.53.0.0#8.x-1.53",
+    "drupal/google_analytics-2.5.0.0#8.x-2.5",
+    "drupal/google_analytics_reports-3.0.0.0#8.x-3.0",
+    "drupal/google_analytics_reports_api-3.0.0.0",
+    "drupal/google_tag-1.6.0.0#8.x-1.6",
+    "drupal/graphql-4.5.0.0#8.x-4.5",
+    "drupal/hal-1.0.3.0#1.0.3",
+    "drupal/imageapi_optimize-4.0.1.0#4.0.1",
+    "drupal/imageapi_optimize_binaries-1.0.0.0-beta1#8.x-1.0-beta1",
+    "drupal/imagemagick-3.4.0.0#8.x-3.4",
+    "drupal/inline_entity_form-1.0.0.0-RC15#8.x-1.0-rc15",
+    "drupal/ivw_integration-2.5.0.0#8.x-2.5",
+    "drupal/jquery_ui-1.6.0.0#8.x-1.6",
+    "drupal/jquery_ui_datepicker-1.4.0.0#8.x-1.4",
+    "drupal/jquery_ui_draggable-2.0.0.0#2.0.0",
+    "drupal/jquery_ui_droppable-1.5.0.0#8.x-1.5",
+    "drupal/jquery_ui_slider-1.1.0.0#8.x-1.1",
+    "drupal/jquery_ui_touch_punch-1.1.0.0#1.1.0",
+    "drupal/lazy-3.11.0.0#8.x-3.11",
+    "drupal/leaflet-2.2.12.0#2.2.12",
+    "drupal/leaflet_mapbox-1.0.0.0-alpha1#8.x-1.0-alpha1",
+    "drupal/length_indicator-1.2.0.0#8.x-1.2",
+    "drupal/link_attributes-1.13.0.0#8.x-1.13",
+    "drupal/linkit-6.0.0.0-RC1#6.0.0-rc1",
+    "drupal/liveblog-1.3.0.0-alpha15#8.x-1.3-alpha15",
+    "drupal/locale_deploy-1.0.0.0-beta2#1.0.0-beta2",
+    "drupal/media_entity_generic-1.2.0.0#8.x-1.2",
+    "drupal/media_entity_instagram-3.0.8.0#3.0.8",
+    "drupal/media_entity_pinterest-2.6.0.0#8.x-2.6",
+    "drupal/media_entity_slideshow-2.5.0.0#8.x-2.5",
+    "drupal/media_entity_twitter-2.9.0.0#8.x-2.9",
+    "drupal/media_expire-2.6.0.0#8.x-2.6",
+    "drupal/media_file_delete-1.3.0.0#1.3.0",
+    "drupal/memcache-2.5.0.0#8.x-2.5",
+    "drupal/menu_block-1.10.0.0#8.x-1.10",
+    "drupal/metatag-1.25.0.0#8.x-1.25",
+    "drupal/metatag_async_widget-1.1.0.0#1.1.0",
+    "drupal/migrate_plus-5.3.0.0#8.x-5.3",
+    "drupal/override_node_options-2.7.0.0#8.x-2.7",
+    "drupal/panelizer-4.4.0.0#8.x-4.4",
+    "drupal/panels-4.7.0.0#8.x-4.7",
+    "drupal/panels_ipe-4.7.0.0",
+    "drupal/paragraphs-1.15.0.0#8.x-1.15",
+    "drupal/paragraphs_features-1.16.0.0#8.x-1.16",
+    "drupal/paragraphs_paste-2.0.0.0-beta6#2.0.0-beta6",
+    "drupal/password_policy-4.0.0.0#4.0.0",
+    "drupal/pathauto-1.11.0.0#8.x-1.11",
+    "drupal/potx-1.0.0.0#8.x-1.0",
+    "drupal/prepopulate-2.4.0.0#8.x-2.4",
+    "drupal/publication_date-2.0.0.0-beta7#8.x-2.0-beta7",
+    "drupal/qrfield-1.0.0.0-alpha6#1.0.0-alpha6",
+    "drupal/quicklink-1.3.0.0#8.x-1.3",
+    "drupal/rabbit_hole-1.0.0.0-beta11#8.x-1.0-beta11",
+    "drupal/redirect-1.8.0.0#8.x-1.8",
+    "drupal/redis-1.6.0.0#8.x-1.6",
+    "drupal/responsive_preview-1.1.0.0#8.x-1.1",
+    "drupal/responsive_tables_filter-1.17.0.0#8.x-1.17",
+    "drupal/scheduler-2.0.0.0-RC8#2.0.0-rc8",
+    "drupal/scheduler_content_moderation_integration-2.0.0.0-beta1#2.0.0-beta1",
+    "drupal/schema_metatag-2.4.0.0#8.x-2.4",
+    "drupal/search_api-1.29.0.0#8.x-1.29",
+    "drupal/search_api_mark_outdated-1.0.0.0-beta2#1.0.0-beta2",
+    "drupal/search_api_solr-4.2.10.0#4.2.10",
+    "drupal/search_api_spellcheck-4.0.0.0#4.0.0",
+    "drupal/select2-1.15.0.0#8.x-1.15",
+    "drupal/shariff-1.7.0.0#8.x-1.7",
+    "drupal/similarterms-1.6.0.0#8.x-1.6",
+    "drupal/simple_gmap-2.0.0.0#8.x-2.0",
+    "drupal/simple_sitemap-3.11.0.0#8.x-3.11",
+    "drupal/slick-2.8.0.0#8.x-2.8",
+    "drupal/smart_trim-1.3.0.0#8.x-1.3",
+    "drupal/smtp-1.2.0.0#8.x-1.2",
+    "drupal/social_media_links-2.9.0.0#8.x-2.9",
+    "drupal/sophron-1.3.0.0#8.x-1.3",
+    "drupal/stage_file_proxy-1.5.0.0#8.x-1.5",
+    "drupal/synonyms-2.1.2.0#2.1.2",
+    "drupal/taxonomy_menu-3.6.0.0#8.x-3.6",
+    "drupal/theme_breakpoints_js-1.1.0.0#8.x-1.1",
+    "drupal/thunder_admin-4.0.5.0#4.0.5",
+    "drupal/token-1.11.0.0#8.x-1.11",
+    "drupal/toolbar_anti_flicker-9.3.1.0#9.3.1",
+    "drupal/typed_data-1.0.0.0-beta2#8.x-1.0-beta2",
+    "drupal/update_helper-3.0.4.0#3.0.4",
+    "drupal/vefl-3.0.0.0#8.x-3.0",
+    "drupal/vgwort-2.0.0.0-beta5#2.0.0-beta5",
+    "drupal/video_embed_field-2.5.0.0#8.x-2.5",
+    "drupal/view_unpublished-1.1.0.0#8.x-1.1",
+    "drupal/viewfield-3.0.0.0-beta7#8.x-3.0-beta7",
+    "drupal/views_arg_order_sort-2.0.0.0-alpha1#2.0.0-alpha1",
+    "drupal/views_bulk_edit-2.8.0.0#8.x-2.8",
+    "drupal/views_bulk_operations-4.2.4.0#4.2.4",
+    "drupal/views_contextual_filters_or-1.4.0.0#8.x-1.4",
+    "drupal/views_data_export-1.3.0.0#8.x-1.3",
+    "drupal/views_exclude_previous-2.0.0.0-beta2#2.0.0-beta2",
+    "drupal/views_infinite_scroll-2.0.1.0#2.0.1",
+    "drupal/views_load_more-2.0.0.0-alpha1#2.0.0-alpha1",
+    "drupal/views_rss-2.0.0.0-RC3#8.x-2.0-rc3",
+    "drupal/views_tree-2.9999999.9999999.9999999-dev#40ec0e8b373e9ca614d703e045aaa8b325c83a43 (alias of dev-2.x)",
+    "drupal/views_tree-dev-2.x#40ec0e8b373e9ca614d703e045aaa8b325c83a43",
+    "drupal/viewsreference-1.8.0.0#8.x-1.8",
+    "drupal/weight-3.4.0.0#8.x-3.4",
+    "drupal/xymatic-1.0.0.0-beta5#1.0.0-beta5",
+    "drupal/zurb_foundation-6.7.0.0-beta1#8.x-6.7-beta1",
+    "drush/drush-11.5.1.0#3138f82baa3b0e29ac935893a444881a7332177d",
+    "easyrdf/easyrdf-1.1.1.0#c7b0a9dbcb211eb7de03ee99ff5b52d17f2a8e64",
+    "egulias/email-validator-3.2.5.0#b531a2311709443320c786feb4519cfaf94af796",
+    "enlightn/security-checker-1.10.0.0#196bacc76e7a72a63d0e1220926dbb190272db97",
+    "ext-bcmath-8.2.14.0",
+    "ext-bcmath-8.2.14.0",
+    "ext-bz2-8.2.14.0",
+    "ext-bz2-8.2.14.0",
+    "ext-calendar-8.2.14.0",
+    "ext-calendar-8.2.14.0",
+    "ext-ctype-8.2.14.0",
+    "ext-ctype-8.2.14.0",
+    "ext-curl-8.2.14.0",
+    "ext-curl-8.2.14.0",
+    "ext-date-8.2.14.0",
+    "ext-date-8.2.14.0",
+    "ext-dba-8.2.14.0",
+    "ext-dba-8.2.14.0",
+    "ext-dom-20031129",
+    "ext-dom-20031129",
+    "ext-exif-8.2.14.0",
+    "ext-exif-8.2.14.0",
+    "ext-ffi-8.2.14.0",
+    "ext-ffi-8.2.14.0",
+    "ext-fileinfo-8.2.14.0",
+    "ext-fileinfo-8.2.14.0",
+    "ext-filter-8.2.14.0",
+    "ext-filter-8.2.14.0",
+    "ext-ftp-8.2.14.0",
+    "ext-ftp-8.2.14.0",
+    "ext-gd-8.2.14.0",
+    "ext-gd-8.2.14.0",
+    "ext-gettext-8.2.14.0",
+    "ext-gettext-8.2.14.0",
+    "ext-gmp-8.2.14.0",
+    "ext-gmp-8.2.14.0",
+    "ext-hash-8.2.14.0",
+    "ext-hash-8.2.14.0",
+    "ext-iconv-8.2.14.0",
+    "ext-iconv-8.2.14.0",
+    "ext-intl-8.2.14.0",
+    "ext-intl-8.2.14.0",
+    "ext-json-8.2.14.0",
+    "ext-json-8.2.14.0",
+    "ext-ldap-8.2.14.0",
+    "ext-ldap-8.2.14.0",
+    "ext-libxml-8.2.14.0",
+    "ext-libxml-8.2.14.0",
+    "ext-mbstring-8.2.14.0",
+    "ext-mbstring-8.2.14.0",
+    "ext-mysqli-8.2.14.0",
+    "ext-mysqli-8.2.14.0",
+    "ext-mysqlnd-0.0.0.0",
+    "ext-mysqlnd-0.0.0.0",
+    "ext-odbc-8.2.14.0",
+    "ext-odbc-8.2.14.0",
+    "ext-openssl-8.2.14.0",
+    "ext-openssl-8.2.14.0",
+    "ext-pcntl-8.2.14.0",
+    "ext-pcntl-8.2.14.0",
+    "ext-pcov-1.0.11.0",
+    "ext-pcov-1.0.11.0",
+    "ext-pcre-8.2.14.0",
+    "ext-pcre-8.2.14.0",
+    "ext-pdo-8.2.14.0",
+    "ext-pdo-8.2.14.0",
+    "ext-pdo_dblib-8.2.14.0",
+    "ext-pdo_dblib-8.2.14.0",
+    "ext-pdo_mysql-8.2.14.0",
+    "ext-pdo_mysql-8.2.14.0",
+    "ext-pdo_odbc-8.2.14.0",
+    "ext-pdo_odbc-8.2.14.0",
+    "ext-pdo_pgsql-8.2.14.0",
+    "ext-pdo_pgsql-8.2.14.0",
+    "ext-pdo_sqlite-8.2.14.0",
+    "ext-pdo_sqlite-8.2.14.0",
+    "ext-pgsql-8.2.14.0",
+    "ext-pgsql-8.2.14.0",
+    "ext-phar-8.2.14.0",
+    "ext-phar-8.2.14.0",
+    "ext-posix-8.2.14.0",
+    "ext-posix-8.2.14.0",
+    "ext-pspell-8.2.14.0",
+    "ext-pspell-8.2.14.0",
+    "ext-random-8.2.14.0",
+    "ext-random-8.2.14.0",
+    "ext-readline-8.2.14.0",
+    "ext-readline-8.2.14.0",
+    "ext-reflection-8.2.14.0",
+    "ext-reflection-8.2.14.0",
+    "ext-session-8.2.14.0",
+    "ext-session-8.2.14.0",
+    "ext-shmop-8.2.14.0",
+    "ext-shmop-8.2.14.0",
+    "ext-simplexml-8.2.14.0",
+    "ext-simplexml-8.2.14.0",
+    "ext-soap-8.2.14.0",
+    "ext-soap-8.2.14.0",
+    "ext-sockets-8.2.14.0",
+    "ext-sockets-8.2.14.0",
+    "ext-sodium-8.2.14.0",
+    "ext-sodium-8.2.14.0",
+    "ext-spl-8.2.14.0",
+    "ext-spl-8.2.14.0",
+    "ext-sqlite3-8.2.14.0",
+    "ext-sqlite3-8.2.14.0",
+    "ext-sysvmsg-8.2.14.0",
+    "ext-sysvmsg-8.2.14.0",
+    "ext-sysvsem-8.2.14.0",
+    "ext-sysvsem-8.2.14.0",
+    "ext-sysvshm-8.2.14.0",
+    "ext-sysvshm-8.2.14.0",
+    "ext-tidy-8.2.14.0",
+    "ext-tidy-8.2.14.0",
+    "ext-tokenizer-8.2.14.0",
+    "ext-tokenizer-8.2.14.0",
+    "ext-xdebug-3.3.1.0",
+    "ext-xdebug-3.3.1.0",
+    "ext-xml-8.2.14.0",
+    "ext-xml-8.2.14.0",
+    "ext-xmlreader-8.2.14.0",
+    "ext-xmlreader-8.2.14.0",
+    "ext-xmlwriter-8.2.14.0",
+    "ext-xmlwriter-8.2.14.0",
+    "ext-xsl-8.2.14.0",
+    "ext-xsl-8.2.14.0",
+    "ext-zend-opcache-8.2.14.0",
+    "ext-zend-opcache-8.2.14.0",
+    "ext-zip-1.21.1.0",
+    "ext-zip-1.21.1.0",
+    "ext-zlib-8.2.14.0",
+    "ext-zlib-8.2.14.0",
+    "ezyang/htmlpurifier-4.16.0.0#523407fb06eb9e5f3d59889b3978d5bfe94299c8",
+    "fileeye/mimemap-2.0.1.0#58fbd11312a8f69e0824a640b86b33a9d096fe7f",
+    "friends-of-behat/mink-browserkit-driver-1.6.1.0#b3c29f18fe20487846e4c2733b066ec5e47f4f76",
+    "graham-campbell/result-type-1.1.1.0#672eff8cf1d6fe1ef09ca0f89c4b287d6a3eb831",
+    "grasmash/expander-2.0.3.0#b7cbc1f2fdf9a9c0e253a424c2a4058316b7cb6e",
+    "guzzlehttp/guzzle-6.5.8.0#a52f0440530b54fa079ce76e8c5d196a42cad981",
+    "guzzlehttp/promises-1.5.3.0#67ab6e18aaa14d753cc148911d273f6e6cb6721e",
+    "guzzlehttp/psr7-1.9.1.0#e4490cabc77465aaee90b20cfc9a770f8c04be6b",
+    "instaclick/php-webdriver-1.4.16.0#a39a1f6dc0f4ddd8b2438fa5eb1f67755730d606",
+    "itamair/geophp-1.5.0.0#645f3262ebaa7443d58910207c65f386c733f614",
+    "j7mbo/twitter-api-php-1.0.6.0#443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
+    "justinrainbow/json-schema-5.2.12.0#ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
+    "laminas/laminas-escaper-2.12.0.0#ee7a4c37bf3d0e8c03635d5bddb5bb3184ead490",
+    "laminas/laminas-feed-2.20.0.0#508ebef6e622f2f2ce3dd0559739ffd0dfa3b938",
+    "laminas/laminas-servicemanager-3.21.0.0#625f2aa3bc6dd02688b2da5155b3a69870812bda",
+    "laminas/laminas-stdlib-3.17.0.0#dd35c868075bad80b6718959740913e178eb4274",
+    "league/container-4.2.0.0#375d13cb828649599ef5d48a339c4af7a26cd0ab",
+    "league/csv-9.9.0.0#b4418ede47fbd88facc34e40a16c8ce9153b961b",
+    "lib-bz2-1.0.8.0",
+    "lib-bz2-1.0.8.0",
+    "lib-curl-8.5.0.0",
+    "lib-curl-8.5.0.0",
+    "lib-curl-libssh2-1.11.0.0",
+    "lib-curl-libssh2-1.11.0.0",
+    "lib-curl-securetransport-3.2.0.0",
+    "lib-curl-securetransport-3.2.0.0",
+    "lib-curl-zlib-1.2.12.0",
+    "lib-curl-zlib-1.2.12.0",
+    "lib-date-timelib-2022.10.0.0",
+    "lib-date-timelib-2022.10.0.0",
+    "lib-date-zoneinfo-2023.3.0.0",
+    "lib-date-zoneinfo-2023.3.0.0",
+    "lib-fileinfo-libmagic-540.0.0.0",
+    "lib-fileinfo-libmagic-540.0.0.0",
+    "lib-gd-2.3.3.0",
+    "lib-gd-2.3.3.0",
+    "lib-gmp-6.3.0.0",
+    "lib-gmp-6.3.0.0",
+    "lib-iconv-1.11.0.0",
+    "lib-iconv-1.11.0.0",
+    "lib-icu-73.2.0.0",
+    "lib-icu-73.2.0.0",
+    "lib-icu-cldr-43.1.0.0",
+    "lib-icu-cldr-43.1.0.0",
+    "lib-icu-unicode-15.0.0.0",
+    "lib-icu-unicode-15.0.0.0",
+    "lib-icu-zoneinfo-2023.3.0.0",
+    "lib-icu-zoneinfo-2023.3.0.0",
+    "lib-ldap-openldap-2.6.6.0",
+    "lib-ldap-openldap-2.6.6.0",
+    "lib-libsodium-1.0.19.0",
+    "lib-libsodium-1.0.19.0",
+    "lib-libxml-2.9.13.0",
+    "lib-libxml-2.9.13.0",
+    "lib-libxslt-1.1.35.0",
+    "lib-libxslt-1.1.35.0",
+    "lib-libxslt-libxml-2.9.13.0",
+    "lib-libxslt-libxml-2.9.13.0",
+    "lib-mbstring-libmbfl-1.3.2.0",
+    "lib-mbstring-libmbfl-1.3.2.0",
+    "lib-mbstring-oniguruma-6.9.9.0",
+    "lib-mbstring-oniguruma-6.9.9.0",
+    "lib-openssl-3.2.0.0",
+    "lib-openssl-3.2.0.0",
+    "lib-pcre-10.42.0.0",
+    "lib-pcre-10.42.0.0",
+    "lib-pcre-unicode-14.0.0.0",
+    "lib-pcre-unicode-14.0.0.0",
+    "lib-pdo_pgsql-libpq-16.1.0.0",
+    "lib-pdo_pgsql-libpq-16.1.0.0",
+    "lib-pdo_sqlite-sqlite-3.44.2.0",
+    "lib-pdo_sqlite-sqlite-3.44.2.0",
+    "lib-pgsql-libpq-16.1.0.0",
+    "lib-pgsql-libpq-16.1.0.0",
+    "lib-sqlite3-sqlite-3.44.2.0",
+    "lib-sqlite3-sqlite-3.44.2.0",
+    "lib-zip-libzip-1.10.1.0",
+    "lib-zip-libzip-1.10.1.0",
+    "lib-zlib-1.2.12.0",
+    "lib-zlib-1.2.12.0",
+    "longwave/laminas-diactoros-2.14.2.0#ae4f0becf249ae8eea8f2f8f9fb927104e55a885",
+    "lsolesen/pel-0.9.12.0#b95fe29cdacf9d36330da277f10910a13648c84c",
+    "maennchen/zipstream-php-2.4.0.0#3fa72e4c71a43f9e9118752a5c90e476a8dc9eb3",
+    "masterminds/html5-2.8.0.0#3c5d5a56d56f48a1ca08a0670f0f80c1dad368f3",
+    "mglaman/phpstan-drupal-1.1.34.0#1422ca153874935bb4f8efd98b0b3b2e8aa7cb0c",
+    "mikey179/vfsstream-1.6.11.0#17d16a85e6c26ce1f3e2fa9ceeacdc2855db1e9f",
+    "mkalkbrenner/php-htmldiff-advanced-0.0.8.0#3a714b48c9c3d3730baaf6d3949691e654cd37c9",
+    "myclabs/deep-copy-1.11.1.0#7284c22080590fb39f2ffa3e9057f10a4ddd0e0c",
+    "myclabs/php-enum-1.8.4.0#a867478eae49c9f59ece437ae7f9506bfaa27483",
+    "netcarver/textile-3.8.0.0#02ed0cbe6832c2100342dabb6d01d7ba558cb8e7",
+    "nikic/php-parser-4.15.5.0#11e2663a5bc9db5d714eedb4277ee300403b4a9e",
+    "npm-asset/blazy-1.8.2.0",
+    "npm-asset/dom7-3.0.0.0",
+    "npm-asset/dropzone-5.9.3.0",
+    "npm-asset/exif-js-2.3.0.0",
+    "npm-asset/fortawesome--fontawesome-free-5.15.4.0",
+    "npm-asset/jquery-visible-1.2.0.0",
+    "npm-asset/lazysizes-5.3.2.0",
+    "npm-asset/select2-4.0.13.0",
+    "npm-asset/shariff-3.2.1.0",
+    "npm-asset/slick-carousel-1.8.1.0",
+    "npm-asset/ssr-window-3.0.0.0",
+    "npm-asset/swiper-6.8.4.0",
+    "oomphinc/composer-installers-extender-2.0.1.0#cbf4b6f9a24153b785d09eee755b995ba87bd5f9",
+    "palantirnet/drupal-rector-0.13.1.0#4814ad9fa7d19be068f75558220383967c258d10",
+    "paragonie/random_compat-9.99.100.0#996434e5492cb4c3edcb9168db6fbb1359ef965a",
+    "paragonie/sodium_compat-1.20.0.0#e592a3e06d1fa0d43988c7c7d9948ca836f644b6",
+    "pear/archive_tar-1.4.14.0#4d761c5334c790e45ef3245f0864b8955c562caa",
+    "pear/console_getopt-1.4.3.0#a41f8d3e668987609178c7c4a9fe48fecac53fa0",
+    "pear/pear-core-minimal-1.10.13.0#aed862e95fd286c53cc546734868dc38ff4b5b1d",
+    "pear/pear_exception-1.0.2.0#b14fbe2ddb0b9f94f5b24cf08783d599f776fff0",
+    "phar-io/manifest-2.0.3.0#97803eca37d319dfa7826cc2437fc020857acb53",
+    "phar-io/version-3.2.1.0#4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+    "phenx/php-font-lib-0.5.4.0#dd448ad1ce34c63d09baccd05415e361300c35b4",
+    "php-64bit-8.2.14.0",
+    "php-64bit-8.2.14.0",
+    "php-8.2.14.0",
+    "php-8.2.14.0",
+    "php-http/guzzle6-adapter-2.0.2.0#9d1a45eb1c59f12574552e81fb295e9e53430a56",
+    "php-http/httplug-2.4.0.0#625ad742c360c8ac580fcc647a1541d29e257f67",
+    "php-http/message-1.16.0.0#47a14338bf4ebd67d317bf1144253d7db4ab55fd",
+    "php-http/promise-1.1.0.0#4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
+    "php-ipv6-8.2.14.0",
+    "php-ipv6-8.2.14.0",
+    "phpdocumentor/reflection-common-2.2.0.0#1d01c49d4ed62f25aa84a747ad35d5a16924662b",
+    "phpdocumentor/reflection-docblock-5.3.0.0#622548b623e81ca6d78b721c5e029f4ce664f170",
+    "phpdocumentor/type-resolver-1.7.2.0#b2fe4d22a5426f38e014855322200b97b5362c0d",
+    "phpmailer/phpmailer-6.8.0.0#df16b615e371d81fb79e506277faea67a1be18f1",
+    "phpoption/phpoption-1.9.1.0#dd3a383e599f49777d8b628dadbb90cae435b87e",
+    "phpspec/prophecy-1.17.0.0#15873c65b207b07765dbc3c95d20fdf4a320cbe2",
+    "phpspec/prophecy-phpunit-2.0.2.0#9f26c224a2fa335f33e6666cc078fbf388255e87",
+    "phpstan/extension-installer-1.3.1.0#f45734bfb9984c6c56c4486b71230355f066a58a",
+    "phpstan/phpdoc-parser-1.21.3.0#b0c366dd2cea79407d635839d25423ba07c55dd6",
+    "phpstan/phpstan-1.10.15.0#762c4dac4da6f8756eebb80e528c3a47855da9bd",
+    "phpstan/phpstan-deprecation-rules-1.1.3.0#a22b36b955a2e9a3d39fe533b6c1bb5359f9c319",
+    "phpunit/php-code-coverage-9.2.26.0#443bc6912c9bd5b409254a40f4b0f4ced7c80ea1",
+    "phpunit/php-file-iterator-3.0.6.0#cf1c2e7c203ac650e352f4cc675a7021e7d1b3cf",
+    "phpunit/php-invoker-3.1.1.0#5a10147d0aaf65b58940a0b72f71c9ac0423cc67",
+    "phpunit/php-text-template-2.0.4.0#5da5f67fc95621df9ff4c4e5a84d6a8a2acf7c28",
+    "phpunit/php-timer-5.0.3.0#5a63ce20ed1b5bf577850e2c4e87f4aa902afbd2",
+    "phpunit/phpunit-9.6.8.0#17d621b3aff84d0c8b62539e269e87d8d5baa76e",
+    "politsin/jquery-ui-touch-punch-1.0.0.0#2fe375e05821e267f0f3c0e063197f5c406896dd",
+    "psr/cache-3.0.0.0#aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+    "psr/container-1.1.2.0#513e0666f7216c7459170d56df27dfcefe1689ea",
+    "psr/event-dispatcher-1.0.0.0#dbefd12671e8a14ec7f180cab83036ed26714bb0",
+    "psr/http-client-1.0.2.0#0955afe48220520692d2d09f7ab7e0f93ffd6a31",
+    "psr/http-factory-1.0.2.0#e616d01114759c4c489f93b099585439f795fe35",
+    "psr/http-message-1.1.0.0#cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
+    "psr/log-1.1.4.0#d49695b909c3b7628b6289db5479a1c204601f11",
+    "psy/psysh-0.11.18.0#4f00ee9e236fa6a48f4560d1300b9c961a70a7ec",
+    "pusher/pusher-php-server-4.1.5.0#251f22602320c1b1aff84798fe74f3f7ee0504a9",
+    "ralouphie/getallheaders-3.0.3.0#120b605dfeb996808c31b6477290a714d356e822",
+    "react/promise-2.10.0.0#f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38",
+    "rector/rector-0.13.10.0#d1e069db8ad3b4aea2b968248370c21415e4c180",
+    "sebastian/cli-parser-1.0.1.0#442e7c7e687e42adc03470c7b668bc4b2402c0b2",
+    "sebastian/code-unit-1.0.8.0#1fc9f64c0927627ef78ba436c9b17d967e68e120",
+    "sebastian/code-unit-reverse-lookup-2.0.3.0#ac91f01ccec49fb77bdc6fd1e548bc70f7faa3e5",
+    "sebastian/comparator-4.0.8.0#fa0f136dd2334583309d32b62544682ee972b51a",
+    "sebastian/complexity-2.0.2.0#739b35e53379900cc9ac327b2147867b8b6efd88",
+    "sebastian/diff-4.0.5.0#74be17022044ebaaecfdf0c5cd504fc9cd5a7131",
+    "sebastian/environment-5.1.5.0#830c43a844f1f8d5b7a1f6d6076b784454d8b7ed",
+    "sebastian/exporter-4.0.5.0#ac230ed27f0f98f597c8a2b6eb7ac563af5e5b9d",
+    "sebastian/global-state-5.0.5.0#0ca8db5a5fc9c8646244e629625ac486fa286bf2",
+    "sebastian/lines-of-code-1.0.3.0#c1c2e997aa3146983ed888ad08b15470a2e22ecc",
+    "sebastian/object-enumerator-4.0.4.0#5c9eeac41b290a3712d88851518825ad78f45c71",
+    "sebastian/object-reflector-2.0.4.0#b4f479ebdbf63ac605d183ece17d8d7fe49c15c7",
+    "sebastian/recursion-context-4.0.5.0#e75bd0f07204fec2a0af9b0f3cfe97d05f92efc1",
+    "sebastian/resource-operations-3.0.3.0#0f4443cb3a1d92ce809899753bc0d5d5a8dd19a8",
+    "sebastian/type-3.2.1.0#75e2c2a32f5e0b3aef905b9ed0b179b953b3d7c7",
+    "sebastian/version-3.0.2.0#c6c1022351a901512170118436c764e473f6de8c",
+    "seld/jsonlint-1.10.0.0#594fd6462aad8ecee0b45ca5045acea4776667f1",
+    "seld/phar-utils-1.2.1.0#ea2f4014f163c1be4c601b9b7bd6af81ba8d701c",
+    "sirbrillig/phpcs-variable-analysis-2.11.16.0#dc5582dc5a93a235557af73e523c389aac9a8e88",
+    "slevomat/coding-standard-8.3.0.0#a14df437f2efe861ca9118508f304de9655957e4",
+    "solarium/solarium-6.2.8.0#0bca4fdcd53e86dea19754b0081f91fe17248a9d",
+    "squizlabs/php_codesniffer-3.7.2.0#ed8e00df0a83aa96acf703f8c2979ff33341f879",
+    "stack/builder-1.0.6.0#a4faaa6f532c6086bc66c29e1bc6c29593e1ca7c",
+    "symfony-cmf/routing-2.3.4.0#bbcdf2f6301d740454ba9ebb8adaefd436c36a6b",
+    "symfony/browser-kit-4.4.44.0#2a1ff40723ef6b29c8229a860a9c8f815ad7dbbb",
+    "symfony/console-4.4.49.0#33fa45ffc81fdcc1ca368d4946da859c8cdb58d9",
+    "symfony/css-selector-4.4.44.0#bd0a6737e48de45b4b0b7b6fc98c78404ddceaed",
+    "symfony/debug-4.4.44.0#1a692492190773c5310bc7877cb590c04c2f05be",
+    "symfony/dependency-injection-4.4.49.0#9065fe97dbd38a897e95ea254eb5ddfe1310f734",
+    "symfony/deprecation-contracts-3.3.0.0#7c3aff79d10325257a001fcf92d991f24fc967cf",
+    "symfony/dom-crawler-4.4.45.0#4b8daf6c56801e6d664224261cb100b73edc78a5",
+    "symfony/error-handler-4.4.44.0#be731658121ef2d8be88f3a1ec938148a9237291",
+    "symfony/event-dispatcher-4.4.44.0#1e866e9e5c1b22168e0ce5f0b467f19bba61266a",
+    "symfony/event-dispatcher-contracts-1.1.13.0#1d5cd762abaa6b2a4169d3e77610193a7157129e",
+    "symfony/filesystem-4.4.42.0#815412ee8971209bd4c1eecd5f4f481eacd44bf5",
+    "symfony/finder-4.4.44.0#66bd787edb5e42ff59d3523f623895af05043e4f",
+    "symfony/http-client-contracts-2.5.2.0#ba6a9f0e8f3edd190520ee3b9a958596b6ca2e70",
+    "symfony/http-foundation-4.4.49.0#191413c7b832c015bb38eae963f2e57498c3c173",
+    "symfony/http-kernel-4.4.50.0#aa6df6c045f034aa13ac752fc234bb300b9488ef",
+    "symfony/lock-4.4.46.0#8b060dd4e10f05219698ceb3a4ad735b19c1be4f",
+    "symfony/mime-5.4.13.0#bb2ccf759e2b967dcd11bdee5bdf30dddd2290bd",
+    "symfony/phpunit-bridge-5.4.23.0#1572c5b7cad812bdf0414d89a32a33a2dafb38ba",
+    "symfony/polyfill-ctype-1.27.0.0#5bbc823adecdae860bb64756d639ecfec17b050a",
+    "symfony/polyfill-iconv-1.27.0.0#927013f3aac555983a5059aada98e1907d842695",
+    "symfony/polyfill-intl-grapheme-1.27.0.0#511a08c03c1960e08a883f4cffcacd219b758354",
+    "symfony/polyfill-intl-idn-1.27.0.0#639084e360537a19f9ee352433b84ce831f3d2da",
+    "symfony/polyfill-intl-normalizer-1.27.0.0#19bd1e4fcd5b91116f14d8533c57831ed00571b6",
+    "symfony/polyfill-mbstring-1.27.0.0#8ad114f6b39e2c98a8b0e3bd907732c207c2b534",
+    "symfony/polyfill-php72-1.27.0.0#869329b1e9894268a8a61dabb69153029b7a8c97",
+    "symfony/polyfill-php73-1.27.0.0#9e8ecb5f92152187c4799efd3c96b78ccab18ff9",
+    "symfony/polyfill-php80-1.27.0.0#7a6ff3f1959bb01aefccb463a0f2cd3d3d2fd936",
+    "symfony/process-4.4.44.0#5cee9cdc4f7805e2699d9fd66991a0e6df8252a2",
+    "symfony/psr-http-message-bridge-2.1.4.0#a125b93ef378c492e274f217874906fb9babdebb",
+    "symfony/routing-4.4.44.0#f7751fd8b60a07f3f349947a309b5bdfce22d6ae",
+    "symfony/serializer-4.4.47.0#6e01d63c55657930a6de03d6e36aae50af98888d",
+    "symfony/service-contracts-2.5.2.0#4b426aac47d6427cc1a1d0f7e2ac724627f5966c",
+    "symfony/string-6.3.0.0#f2e190ee75ff0f5eced645ec0be5c66fac81f51f",
+    "symfony/translation-4.4.47.0#45036b1d53accc48fe9bab71ccd86d57eba0dd94",
+    "symfony/translation-contracts-2.5.2.0#136b19dd05cdf0709db6537d058bcab6dd6e2dbe",
+    "symfony/validator-4.4.48.0#54781a4c41efbd283b779110bf8ae7f263737775",
+    "symfony/var-dumper-5.4.24.0#8e12706bf9c68a2da633f23bfdc15b4dce5970b3",
+    "symfony/yaml-4.4.45.0#aeccc4dc52a9e634f1d1eebeb21eacfdcff1053d",
+    "theseer/tokenizer-1.2.1.0#34a41e998c2183e22995f158c581e7b5e755ab9e",
+    "thewirecutter/paapi5-php-sdk-1.2.1.0#46d8a0534eb1120917cc2b45d7747bfc3c933fbb",
+    "thunder/taas-assets-9999999-dev#b1863281f402db55e61198d39abd15d2322f4e14 (alias of dev-main)",
+    "thunder/taas-assets-dev-main#b1863281f402db55e61198d39abd15d2322f4e14",
+    "thunder/thunder-distribution-6.5.5.0#8ec2be6033118490758d236398fcf8ac30e6feb5",
+    "twig/twig-2.15.5.0#fc02a6af3eeb97c4bf5650debc76c2eda85ac22e",
+    "typo3/phar-stream-wrapper-3.1.7.0#5cc2f04a4e2f5c7e9cc02a3bdf80fae0f3e11a8c",
+    "vlucas/phpdotenv-5.5.0.0#1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
+    "wamania/php-stemmer-1.3.0.0#7ea3de803b7d8363be415534c912c70f289de0c6",
+    "webflo/drupal-finder-1.2.2.0#c8e5dbe65caef285fec8057a4c718a0d4138d1ee",
+    "webmozart/assert-1.11.0.0#11cb2199493b2f8a3b53e7f19068fc6aac760991",
+    "webmozart/path-util-2.3.0.0#d939f7edc24c9a1bb9c0dee5cb05d8e859490725",
+    "webonyx/graphql-php-14.11.9.0#ff91c9f3cf241db702e30b2c42bcc0920e70ac70",
+    "willdurand/geocoder-4.6.0.0#be3d9ed0fddf8c698ee079d8a07ae9520b4a49a1"
+]
+
+--EXPECT-OPTIMIZED--
+[
+    "asm89/stack-cors-1.3.0.0#b9c31def6a83f84b4d4a40d35996d375755f0e08",
+    "behat/mink-1.10.0.0#19e58905632e7cfdc5b2bafb9b950a3521af32c5",
+    "behat/mink-selenium2-driver-1.6.0.0#e5f8421654930da725499fb92983e6948c6f973e",
+    "bower-asset/spectrum-1.8.1.0#9aa028de7e8039c41ac792485a928edb97d4ac40",
+    "burdamagazinorg/burda_cmp-1.9999999.9999999.9999999-dev#531e25fbc7783eedb46868902dc08bc14726ea12 (alias of dev-8.x-1.x)",
+    "burdamagazinorg/burda_cmp-dev-8.x-1.x#531e25fbc7783eedb46868902dc08bc14726ea12",
+    "burdamagazinorg/custom_purge-1.0.0.0-alpha4#dca0172f50e7a2f742709ea2d3d81794b6735073",
+    "burdamagazinorg/dcx_integration-3.0.0.0-beta5#5e9fb7dc8ae6c480fdf84c1319a4b1f7f019aad2",
+    "burdamagazinorg/hm_newsletter-2.2.0.0#001bc985debd23d609d6c7d94406692b13dd4521",
+    "caxy/php-htmldiff-0.1.14.0#3f8ee7edda3d7c6d2e58a02d70a12d3242c84ea5",
+    "chi-teck/drupal-code-generator-2.6.2.0#22ed1cc02dc47814e8239de577da541e9b9bd980",
+    "cloudflare/sdk-1.1.6.0#6d9b4ddffed61abea260678d60c8704d873cc6ca",
+    "clue/stream-filter-1.6.0.0#d6169430c7731d8509da7aecd0af756a5747b78e",
+    "commerceguys/addressing-1.4.2.0#406c7b5f0fbe4f6a64155c0fe03b1adb34d01308",
+    "composer-2.6.6.0",
+    "composer-2.6.6.0",
+    "composer-plugin-api-2.6.0.0",
+    "composer-plugin-api-2.6.0.0",
+    "composer-runtime-api-2.2.2.0",
+    "composer-runtime-api-2.2.2.0",
+    "composer/ca-bundle-1.3.5.0#74780ccf8c19d6acb8d65c5f39cd72110e132bbd",
+    "composer/composer-2.2.21.0#978198befc71de0b18fc1fc5a472c03b184b504a",
+    "composer/installers-1.12.0.0#d20a64ed3c94748397ff5973488761b22f6d3f19",
+    "composer/metadata-minifier-1.0.0.0#c549d23829536f0d0e984aaabbf02af91f443207",
+    "composer/pcre-1.0.1.0#67a32d7d6f9f560b726ab25a061b38ff3a80c560",
+    "composer/semver-3.3.2.0#3953f23262f2bff1919fc82183ad9acb13ff62c9",
+    "composer/spdx-licenses-1.5.7.0#c848241796da2abf65837d51dce1fae55a960149",
+    "composer/xdebug-handler-3.0.3.0#ced299686f41dce890debac69273b47ffe98a40c",
+    "consolidation/annotated-command-4.9.1.0#e01152f698eff4cb5df3ebfe5e097ef335dbd3c9",
+    "consolidation/config-2.1.2.0#597f8d7fbeef801736250ec10c3e190569b1b0ae",
+    "consolidation/filter-via-dot-access-data-2.0.2.0#cb2eeba41f8e2e3c61698a5cf70ef048ff6c9d5b",
+    "consolidation/log-2.1.1.0#3ad08dc57e8aff9400111bad36beb0ed387fe6a9",
+    "consolidation/output-formatters-4.3.1.0#f65524e9ecd2bd0021c4b18710005caaa6dcbd86",
+    "consolidation/robo-4.0.2.0#ccf80963abf11bdb8e90659aa99a7449b21e9452",
+    "consolidation/self-update-2.1.0.0#714b09fdf0513f83292874bb12de0566066040c2",
+    "consolidation/site-alias-3.1.7.0#3b6519592c7e8557423f935806cd73adf69ed6c7",
+    "consolidation/site-process-4.2.1.0#ee3bf69001694b2117cc2f96c2ef70d8d45f1234",
+    "cweagans/composer-patches-1.7.3.0#e190d4466fe2b103a55467dfa83fc2fecfcaf2db",
+    "davedevelopment/stiphle-0.9.4.0#5d1c244f0525d265e231a65db538b74eb5483768",
+    "dealerdirect/phpcodesniffer-composer-installer-0.7.2.0#1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db",
+    "dflydev/dot-access-data-3.0.2.0#f41715465d65213d644d3141a6a93081be5d3549",
+    "digicol/dcx-sdk-php-2.0.1.0#91337e2c623c351d2cd0092aaf076990a3b4a7e9",
+    "doctrine/annotations-1.14.3.0#fb0d71a7393298a7b232cbf4c8b1f73f3ec3d5af",
+    "doctrine/collections-2.1.2.0#db8cda536a034337f7dd63febecc713d4957f9ee",
+    "doctrine/deprecations-1.1.0.0#8cffffb2218e01f3b370bf763e00e81697725259",
+    "doctrine/instantiator-2.0.0.0#c6222283fa3f4ac679f8b9ced9a4e23f163e80d0",
+    "doctrine/lexer-2.1.0.0#39ab8fcf5a51ce4b85ca97c7a7d033eb12831124",
+    "doctrine/reflection-1.2.3.0#1034e5e71f89978b80f9c1570e7226f6c3b9b6fb",
+    "dpp/dpp-project-dev-main",
+    "dpp/version-1.0.0.0",
+    "drupal/access_unpublished-1.5.0.0#8.x-1.5",
+    "drupal/ad_entity-1.3.0.0#8.x-1.3",
+    "drupal/address-1.12.0.0#8.x-1.12",
+    "drupal/admin_toolbar-3.4.1.0#3.4.1",
+    "drupal/adsense-1.3.0.0#8.x-1.3",
+    "drupal/advagg-4.1.0.0#8.x-4.1",
+    "drupal/advancedqueue-1.0.0.0-RC7#8.x-1.0-rc7",
+    "drupal/ajax_dependency-1.0.0.0#8.x-1.0",
+    "drupal/allowed_formats-1.5.0.0#8.x-1.5",
+    "drupal/amazon_paapi-1.1.5.0#1.1.5",
+    "drupal/amazon_product_widget-1.5.9.0#1.5.9",
+    "drupal/autofill-1.1.0.0#8.x-1.1",
+    "drupal/autosave_form-1.4.0.0#8.x-1.4",
+    "drupal/better_exposed_filters-5.2.0.0#8.x-5.2",
+    "drupal/better_normalizers-1.0.0.0-beta5#8.x-1.0-beta5",
+    "drupal/blazy-2.15.0.0#8.x-2.15",
+    "drupal/bootstrap-3.28.0.0#8.x-3.28",
+    "drupal/breakpoint_js_settings-1.0.0.0-RC3#8.x-1.0-rc3",
+    "drupal/checklistapi-2.1.2.0#2.1.2",
+    "drupal/ckeditor-1.0.1.0#1.0.1",
+    "drupal/cloudflare-1.0.0.0-beta3#8.x-1.0-beta3",
+    "drupal/coder-8.3.18.0#d5911f812b69ca3bda5524899bdd06b3b4e687ff",
+    "drupal/color_field-2.5.0.0#8.x-2.5",
+    "drupal/components-2.4.0.0#8.x-2.4",
+    "drupal/config_filter-1.10.0.0#8.x-1.10",
+    "drupal/config_ignore-2.4.0.0#8.x-2.4",
+    "drupal/config_selector-2.2.0.0#8.x-2.2",
+    "drupal/config_update-1.7.0.0#8.x-1.7",
+    "drupal/consumer_base_url-1.0.0.0-alpha3#1.0.0-alpha3",
+    "drupal/consumers-1.17.0.0#8.x-1.17",
+    "drupal/content_lock-2.3.0.0#8.x-2.3",
+    "drupal/convert_bundles-1.0.0.0-beta1#8.x-1.0-beta1",
+    "drupal/core-9.5.9.0#c3b194f9056a297f6d72e54056c818843cab9aba",
+    "drupal/core-composer-scaffold-9.5.9.0#08da8e59c6f1bd0b1a58d18f8addc0d937bbacc7",
+    "drupal/core-dev-9.5.9.0#60196e12909624e168c482660c0f5795df67a6d7",
+    "drupal/crop-2.3.0.0#8.x-2.3",
+    "drupal/csv_serialization-2.1.0.0#8.x-2.1",
+    "drupal/ctools-3.14.0.0#8.x-3.14",
+    "drupal/ctools_block-4.0.4.0",
+    "drupal/datalayer-1.0.0.0#8.x-1.0",
+    "drupal/default_content-2.0.0.0-alpha2#2.0.0-alpha2",
+    "drupal/diff-1.1.0.0#8.x-1.1",
+    "drupal/dropzonejs-2.8.0.0#8.x-2.8",
+    "drupal/editor_advanced_link-1.9.0.0#8.x-1.9",
+    "drupal/editor_file-1.7.0.0#8.x-1.7",
+    "drupal/embed-1.6.0.0#8.x-1.6",
+    "drupal/empty_fields-1.0.0.0-beta2#8.x-1.0-beta2",
+    "drupal/entity-1.4.0.0#8.x-1.4",
+    "drupal/entity_browser-2.6.0.0#8.x-2.6",
+    "drupal/entity_embed-1.3.0.0#8.x-1.3",
+    "drupal/entity_reference_actions-1.0.0.0#1.0.0",
+    "drupal/entity_reference_display-1.4.0.0#8.x-1.4",
+    "drupal/entity_reference_revisions-1.10.0.0#8.x-1.10",
+    "drupal/ersv-1.1.0.0#8.x-1.1",
+    "drupal/extlink-1.7.0.0#8.x-1.7",
+    "drupal/facets-2.0.6.0#2.0.6",
+    "drupal/field_formatter-3.0.0.0-RC2#3.0.0-rc2",
+    "drupal/field_group-3.4.0.0#8.x-3.4",
+    "drupal/file_mdm-2.5.0.0#8.x-2.5",
+    "drupal/focal_point-1.5.0.0#8.x-1.5",
+    "drupal/gdpr_video-1.1.0.0#1.1.0",
+    "drupal/geocoder-3.34.0.0#8.x-3.34",
+    "drupal/geofield-1.53.0.0#8.x-1.53",
+    "drupal/google_analytics-2.5.0.0#8.x-2.5",
+    "drupal/google_analytics_reports-3.0.0.0#8.x-3.0",
+    "drupal/google_analytics_reports_api-3.0.0.0",
+    "drupal/google_tag-1.6.0.0#8.x-1.6",
+    "drupal/graphql-4.5.0.0#8.x-4.5",
+    "drupal/hal-1.0.3.0#1.0.3",
+    "drupal/imageapi_optimize-4.0.1.0#4.0.1",
+    "drupal/imageapi_optimize_binaries-1.0.0.0-beta1#8.x-1.0-beta1",
+    "drupal/imagemagick-3.4.0.0#8.x-3.4",
+    "drupal/inline_entity_form-1.0.0.0-RC15#8.x-1.0-rc15",
+    "drupal/ivw_integration-2.5.0.0#8.x-2.5",
+    "drupal/jquery_ui-1.6.0.0#8.x-1.6",
+    "drupal/jquery_ui_datepicker-1.4.0.0#8.x-1.4",
+    "drupal/jquery_ui_draggable-2.0.0.0#2.0.0",
+    "drupal/jquery_ui_droppable-1.5.0.0#8.x-1.5",
+    "drupal/jquery_ui_slider-1.1.0.0#8.x-1.1",
+    "drupal/jquery_ui_touch_punch-1.1.0.0#1.1.0",
+    "drupal/lazy-3.11.0.0#8.x-3.11",
+    "drupal/leaflet-2.2.12.0#2.2.12",
+    "drupal/leaflet_mapbox-1.0.0.0-alpha1#8.x-1.0-alpha1",
+    "drupal/length_indicator-1.2.0.0#8.x-1.2",
+    "drupal/link_attributes-1.13.0.0#8.x-1.13",
+    "drupal/linkit-6.0.0.0-RC1#6.0.0-rc1",
+    "drupal/liveblog-1.3.0.0-alpha15#8.x-1.3-alpha15",
+    "drupal/locale_deploy-1.0.0.0-beta2#1.0.0-beta2",
+    "drupal/media_entity_generic-1.2.0.0#8.x-1.2",
+    "drupal/media_entity_instagram-3.0.8.0#3.0.8",
+    "drupal/media_entity_pinterest-2.6.0.0#8.x-2.6",
+    "drupal/media_entity_slideshow-2.5.0.0#8.x-2.5",
+    "drupal/media_entity_twitter-2.9.0.0#8.x-2.9",
+    "drupal/media_expire-2.6.0.0#8.x-2.6",
+    "drupal/media_file_delete-1.3.0.0#1.3.0",
+    "drupal/memcache-2.5.0.0#8.x-2.5",
+    "drupal/menu_block-1.10.0.0#8.x-1.10",
+    "drupal/metatag-1.25.0.0#8.x-1.25",
+    "drupal/metatag_async_widget-1.1.0.0#1.1.0",
+    "drupal/migrate_plus-5.3.0.0#8.x-5.3",
+    "drupal/override_node_options-2.7.0.0#8.x-2.7",
+    "drupal/panelizer-4.4.0.0#8.x-4.4",
+    "drupal/panels-4.7.0.0#8.x-4.7",
+    "drupal/panels_ipe-4.7.0.0",
+    "drupal/paragraphs-1.15.0.0#8.x-1.15",
+    "drupal/paragraphs_features-1.16.0.0#8.x-1.16",
+    "drupal/paragraphs_paste-2.0.0.0-beta6#2.0.0-beta6",
+    "drupal/password_policy-4.0.0.0#4.0.0",
+    "drupal/pathauto-1.11.0.0#8.x-1.11",
+    "drupal/potx-1.0.0.0#8.x-1.0",
+    "drupal/prepopulate-2.4.0.0#8.x-2.4",
+    "drupal/publication_date-2.0.0.0-beta7#8.x-2.0-beta7",
+    "drupal/qrfield-1.0.0.0-alpha6#1.0.0-alpha6",
+    "drupal/quicklink-1.3.0.0#8.x-1.3",
+    "drupal/rabbit_hole-1.0.0.0-beta11#8.x-1.0-beta11",
+    "drupal/redirect-1.8.0.0#8.x-1.8",
+    "drupal/redis-1.6.0.0#8.x-1.6",
+    "drupal/responsive_preview-1.1.0.0#8.x-1.1",
+    "drupal/responsive_tables_filter-1.17.0.0#8.x-1.17",
+    "drupal/scheduler-2.0.0.0-RC8#2.0.0-rc8",
+    "drupal/scheduler_content_moderation_integration-2.0.0.0-beta1#2.0.0-beta1",
+    "drupal/schema_metatag-2.4.0.0#8.x-2.4",
+    "drupal/search_api-1.29.0.0#8.x-1.29",
+    "drupal/search_api_mark_outdated-1.0.0.0-beta2#1.0.0-beta2",
+    "drupal/search_api_solr-4.2.10.0#4.2.10",
+    "drupal/search_api_spellcheck-4.0.0.0#4.0.0",
+    "drupal/select2-1.15.0.0#8.x-1.15",
+    "drupal/shariff-1.7.0.0#8.x-1.7",
+    "drupal/similarterms-1.6.0.0#8.x-1.6",
+    "drupal/simple_gmap-2.0.0.0#8.x-2.0",
+    "drupal/simple_sitemap-3.11.0.0#8.x-3.11",
+    "drupal/slick-2.8.0.0#8.x-2.8",
+    "drupal/smart_trim-1.3.0.0#8.x-1.3",
+    "drupal/smtp-1.2.0.0#8.x-1.2",
+    "drupal/social_media_links-2.9.0.0#8.x-2.9",
+    "drupal/sophron-1.3.0.0#8.x-1.3",
+    "drupal/stage_file_proxy-1.5.0.0#8.x-1.5",
+    "drupal/synonyms-2.1.2.0#2.1.2",
+    "drupal/taxonomy_menu-3.6.0.0#8.x-3.6",
+    "drupal/theme_breakpoints_js-1.1.0.0#8.x-1.1",
+    "drupal/thunder_admin-4.0.5.0#4.0.5",
+    "drupal/token-1.11.0.0#8.x-1.11",
+    "drupal/toolbar_anti_flicker-9.3.1.0#9.3.1",
+    "drupal/typed_data-1.0.0.0-beta2#8.x-1.0-beta2",
+    "drupal/update_helper-3.0.4.0#3.0.4",
+    "drupal/vefl-3.0.0.0#8.x-3.0",
+    "drupal/vgwort-2.0.0.0-beta5#2.0.0-beta5",
+    "drupal/video_embed_field-2.5.0.0#8.x-2.5",
+    "drupal/view_unpublished-1.1.0.0#8.x-1.1",
+    "drupal/viewfield-3.0.0.0-beta7#8.x-3.0-beta7",
+    "drupal/views_arg_order_sort-2.0.0.0-alpha1#2.0.0-alpha1",
+    "drupal/views_bulk_edit-2.8.0.0#8.x-2.8",
+    "drupal/views_bulk_operations-4.2.4.0#4.2.4",
+    "drupal/views_contextual_filters_or-1.4.0.0#8.x-1.4",
+    "drupal/views_data_export-1.3.0.0#8.x-1.3",
+    "drupal/views_exclude_previous-2.0.0.0-beta2#2.0.0-beta2",
+    "drupal/views_infinite_scroll-2.0.1.0#2.0.1",
+    "drupal/views_load_more-2.0.0.0-alpha1#2.0.0-alpha1",
+    "drupal/views_rss-2.0.0.0-RC3#8.x-2.0-rc3",
+    "drupal/views_tree-2.9999999.9999999.9999999-dev#40ec0e8b373e9ca614d703e045aaa8b325c83a43 (alias of dev-2.x)",
+    "drupal/views_tree-dev-2.x#40ec0e8b373e9ca614d703e045aaa8b325c83a43",
+    "drupal/viewsreference-1.8.0.0#8.x-1.8",
+    "drupal/weight-3.4.0.0#8.x-3.4",
+    "drupal/xymatic-1.0.0.0-beta5#1.0.0-beta5",
+    "drupal/zurb_foundation-6.7.0.0-beta1#8.x-6.7-beta1",
+    "drush/drush-11.5.1.0#3138f82baa3b0e29ac935893a444881a7332177d",
+    "easyrdf/easyrdf-1.1.1.0#c7b0a9dbcb211eb7de03ee99ff5b52d17f2a8e64",
+    "egulias/email-validator-3.2.5.0#b531a2311709443320c786feb4519cfaf94af796",
+    "enlightn/security-checker-1.10.0.0#196bacc76e7a72a63d0e1220926dbb190272db97",
+    "ext-bcmath-8.2.14.0",
+    "ext-bcmath-8.2.14.0",
+    "ext-bz2-8.2.14.0",
+    "ext-bz2-8.2.14.0",
+    "ext-calendar-8.2.14.0",
+    "ext-calendar-8.2.14.0",
+    "ext-ctype-8.2.14.0",
+    "ext-ctype-8.2.14.0",
+    "ext-curl-8.2.14.0",
+    "ext-curl-8.2.14.0",
+    "ext-date-8.2.14.0",
+    "ext-date-8.2.14.0",
+    "ext-dba-8.2.14.0",
+    "ext-dba-8.2.14.0",
+    "ext-dom-20031129",
+    "ext-dom-20031129",
+    "ext-exif-8.2.14.0",
+    "ext-exif-8.2.14.0",
+    "ext-ffi-8.2.14.0",
+    "ext-ffi-8.2.14.0",
+    "ext-fileinfo-8.2.14.0",
+    "ext-fileinfo-8.2.14.0",
+    "ext-filter-8.2.14.0",
+    "ext-filter-8.2.14.0",
+    "ext-ftp-8.2.14.0",
+    "ext-ftp-8.2.14.0",
+    "ext-gd-8.2.14.0",
+    "ext-gd-8.2.14.0",
+    "ext-gettext-8.2.14.0",
+    "ext-gettext-8.2.14.0",
+    "ext-gmp-8.2.14.0",
+    "ext-gmp-8.2.14.0",
+    "ext-hash-8.2.14.0",
+    "ext-hash-8.2.14.0",
+    "ext-iconv-8.2.14.0",
+    "ext-iconv-8.2.14.0",
+    "ext-intl-8.2.14.0",
+    "ext-intl-8.2.14.0",
+    "ext-json-8.2.14.0",
+    "ext-json-8.2.14.0",
+    "ext-ldap-8.2.14.0",
+    "ext-ldap-8.2.14.0",
+    "ext-libxml-8.2.14.0",
+    "ext-libxml-8.2.14.0",
+    "ext-mbstring-8.2.14.0",
+    "ext-mbstring-8.2.14.0",
+    "ext-mysqli-8.2.14.0",
+    "ext-mysqli-8.2.14.0",
+    "ext-mysqlnd-0.0.0.0",
+    "ext-mysqlnd-0.0.0.0",
+    "ext-odbc-8.2.14.0",
+    "ext-odbc-8.2.14.0",
+    "ext-openssl-8.2.14.0",
+    "ext-openssl-8.2.14.0",
+    "ext-pcntl-8.2.14.0",
+    "ext-pcntl-8.2.14.0",
+    "ext-pcov-1.0.11.0",
+    "ext-pcov-1.0.11.0",
+    "ext-pcre-8.2.14.0",
+    "ext-pcre-8.2.14.0",
+    "ext-pdo-8.2.14.0",
+    "ext-pdo-8.2.14.0",
+    "ext-pdo_dblib-8.2.14.0",
+    "ext-pdo_dblib-8.2.14.0",
+    "ext-pdo_mysql-8.2.14.0",
+    "ext-pdo_mysql-8.2.14.0",
+    "ext-pdo_odbc-8.2.14.0",
+    "ext-pdo_odbc-8.2.14.0",
+    "ext-pdo_pgsql-8.2.14.0",
+    "ext-pdo_pgsql-8.2.14.0",
+    "ext-pdo_sqlite-8.2.14.0",
+    "ext-pdo_sqlite-8.2.14.0",
+    "ext-pgsql-8.2.14.0",
+    "ext-pgsql-8.2.14.0",
+    "ext-phar-8.2.14.0",
+    "ext-phar-8.2.14.0",
+    "ext-posix-8.2.14.0",
+    "ext-posix-8.2.14.0",
+    "ext-pspell-8.2.14.0",
+    "ext-pspell-8.2.14.0",
+    "ext-random-8.2.14.0",
+    "ext-random-8.2.14.0",
+    "ext-readline-8.2.14.0",
+    "ext-readline-8.2.14.0",
+    "ext-reflection-8.2.14.0",
+    "ext-reflection-8.2.14.0",
+    "ext-session-8.2.14.0",
+    "ext-session-8.2.14.0",
+    "ext-shmop-8.2.14.0",
+    "ext-shmop-8.2.14.0",
+    "ext-simplexml-8.2.14.0",
+    "ext-simplexml-8.2.14.0",
+    "ext-soap-8.2.14.0",
+    "ext-soap-8.2.14.0",
+    "ext-sockets-8.2.14.0",
+    "ext-sockets-8.2.14.0",
+    "ext-sodium-8.2.14.0",
+    "ext-sodium-8.2.14.0",
+    "ext-spl-8.2.14.0",
+    "ext-spl-8.2.14.0",
+    "ext-sqlite3-8.2.14.0",
+    "ext-sqlite3-8.2.14.0",
+    "ext-sysvmsg-8.2.14.0",
+    "ext-sysvmsg-8.2.14.0",
+    "ext-sysvsem-8.2.14.0",
+    "ext-sysvsem-8.2.14.0",
+    "ext-sysvshm-8.2.14.0",
+    "ext-sysvshm-8.2.14.0",
+    "ext-tidy-8.2.14.0",
+    "ext-tidy-8.2.14.0",
+    "ext-tokenizer-8.2.14.0",
+    "ext-tokenizer-8.2.14.0",
+    "ext-xdebug-3.3.1.0",
+    "ext-xdebug-3.3.1.0",
+    "ext-xml-8.2.14.0",
+    "ext-xml-8.2.14.0",
+    "ext-xmlreader-8.2.14.0",
+    "ext-xmlreader-8.2.14.0",
+    "ext-xmlwriter-8.2.14.0",
+    "ext-xmlwriter-8.2.14.0",
+    "ext-xsl-8.2.14.0",
+    "ext-xsl-8.2.14.0",
+    "ext-zend-opcache-8.2.14.0",
+    "ext-zend-opcache-8.2.14.0",
+    "ext-zip-1.21.1.0",
+    "ext-zip-1.21.1.0",
+    "ext-zlib-8.2.14.0",
+    "ext-zlib-8.2.14.0",
+    "ezyang/htmlpurifier-4.16.0.0#523407fb06eb9e5f3d59889b3978d5bfe94299c8",
+    "fileeye/mimemap-2.0.1.0#58fbd11312a8f69e0824a640b86b33a9d096fe7f",
+    "friends-of-behat/mink-browserkit-driver-1.6.1.0#b3c29f18fe20487846e4c2733b066ec5e47f4f76",
+    "graham-campbell/result-type-1.1.1.0#672eff8cf1d6fe1ef09ca0f89c4b287d6a3eb831",
+    "grasmash/expander-2.0.3.0#b7cbc1f2fdf9a9c0e253a424c2a4058316b7cb6e",
+    "guzzlehttp/guzzle-6.5.8.0#a52f0440530b54fa079ce76e8c5d196a42cad981",
+    "guzzlehttp/promises-1.5.3.0#67ab6e18aaa14d753cc148911d273f6e6cb6721e",
+    "guzzlehttp/psr7-1.9.1.0#e4490cabc77465aaee90b20cfc9a770f8c04be6b",
+    "instaclick/php-webdriver-1.4.16.0#a39a1f6dc0f4ddd8b2438fa5eb1f67755730d606",
+    "itamair/geophp-1.5.0.0#645f3262ebaa7443d58910207c65f386c733f614",
+    "j7mbo/twitter-api-php-1.0.6.0#443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
+    "justinrainbow/json-schema-5.2.12.0#ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
+    "laminas/laminas-escaper-2.12.0.0#ee7a4c37bf3d0e8c03635d5bddb5bb3184ead490",
+    "laminas/laminas-feed-2.20.0.0#508ebef6e622f2f2ce3dd0559739ffd0dfa3b938",
+    "laminas/laminas-servicemanager-3.21.0.0#625f2aa3bc6dd02688b2da5155b3a69870812bda",
+    "laminas/laminas-stdlib-3.17.0.0#dd35c868075bad80b6718959740913e178eb4274",
+    "league/container-4.2.0.0#375d13cb828649599ef5d48a339c4af7a26cd0ab",
+    "league/csv-9.9.0.0#b4418ede47fbd88facc34e40a16c8ce9153b961b",
+    "lib-bz2-1.0.8.0",
+    "lib-bz2-1.0.8.0",
+    "lib-curl-8.5.0.0",
+    "lib-curl-8.5.0.0",
+    "lib-curl-libssh2-1.11.0.0",
+    "lib-curl-libssh2-1.11.0.0",
+    "lib-curl-securetransport-3.2.0.0",
+    "lib-curl-securetransport-3.2.0.0",
+    "lib-curl-zlib-1.2.12.0",
+    "lib-curl-zlib-1.2.12.0",
+    "lib-date-timelib-2022.10.0.0",
+    "lib-date-timelib-2022.10.0.0",
+    "lib-date-zoneinfo-2023.3.0.0",
+    "lib-date-zoneinfo-2023.3.0.0",
+    "lib-fileinfo-libmagic-540.0.0.0",
+    "lib-fileinfo-libmagic-540.0.0.0",
+    "lib-gd-2.3.3.0",
+    "lib-gd-2.3.3.0",
+    "lib-gmp-6.3.0.0",
+    "lib-gmp-6.3.0.0",
+    "lib-iconv-1.11.0.0",
+    "lib-iconv-1.11.0.0",
+    "lib-icu-73.2.0.0",
+    "lib-icu-73.2.0.0",
+    "lib-icu-cldr-43.1.0.0",
+    "lib-icu-cldr-43.1.0.0",
+    "lib-icu-unicode-15.0.0.0",
+    "lib-icu-unicode-15.0.0.0",
+    "lib-icu-zoneinfo-2023.3.0.0",
+    "lib-icu-zoneinfo-2023.3.0.0",
+    "lib-ldap-openldap-2.6.6.0",
+    "lib-ldap-openldap-2.6.6.0",
+    "lib-libsodium-1.0.19.0",
+    "lib-libsodium-1.0.19.0",
+    "lib-libxml-2.9.13.0",
+    "lib-libxml-2.9.13.0",
+    "lib-libxslt-1.1.35.0",
+    "lib-libxslt-1.1.35.0",
+    "lib-libxslt-libxml-2.9.13.0",
+    "lib-libxslt-libxml-2.9.13.0",
+    "lib-mbstring-libmbfl-1.3.2.0",
+    "lib-mbstring-libmbfl-1.3.2.0",
+    "lib-mbstring-oniguruma-6.9.9.0",
+    "lib-mbstring-oniguruma-6.9.9.0",
+    "lib-openssl-3.2.0.0",
+    "lib-openssl-3.2.0.0",
+    "lib-pcre-10.42.0.0",
+    "lib-pcre-10.42.0.0",
+    "lib-pcre-unicode-14.0.0.0",
+    "lib-pcre-unicode-14.0.0.0",
+    "lib-pdo_pgsql-libpq-16.1.0.0",
+    "lib-pdo_pgsql-libpq-16.1.0.0",
+    "lib-pdo_sqlite-sqlite-3.44.2.0",
+    "lib-pdo_sqlite-sqlite-3.44.2.0",
+    "lib-pgsql-libpq-16.1.0.0",
+    "lib-pgsql-libpq-16.1.0.0",
+    "lib-sqlite3-sqlite-3.44.2.0",
+    "lib-sqlite3-sqlite-3.44.2.0",
+    "lib-zip-libzip-1.10.1.0",
+    "lib-zip-libzip-1.10.1.0",
+    "lib-zlib-1.2.12.0",
+    "lib-zlib-1.2.12.0",
+    "longwave/laminas-diactoros-2.14.2.0#ae4f0becf249ae8eea8f2f8f9fb927104e55a885",
+    "lsolesen/pel-0.9.12.0#b95fe29cdacf9d36330da277f10910a13648c84c",
+    "maennchen/zipstream-php-2.4.0.0#3fa72e4c71a43f9e9118752a5c90e476a8dc9eb3",
+    "masterminds/html5-2.8.0.0#3c5d5a56d56f48a1ca08a0670f0f80c1dad368f3",
+    "mglaman/phpstan-drupal-1.1.34.0#1422ca153874935bb4f8efd98b0b3b2e8aa7cb0c",
+    "mikey179/vfsstream-1.6.11.0#17d16a85e6c26ce1f3e2fa9ceeacdc2855db1e9f",
+    "mkalkbrenner/php-htmldiff-advanced-0.0.8.0#3a714b48c9c3d3730baaf6d3949691e654cd37c9",
+    "myclabs/deep-copy-1.11.1.0#7284c22080590fb39f2ffa3e9057f10a4ddd0e0c",
+    "myclabs/php-enum-1.8.4.0#a867478eae49c9f59ece437ae7f9506bfaa27483",
+    "netcarver/textile-3.8.0.0#02ed0cbe6832c2100342dabb6d01d7ba558cb8e7",
+    "nikic/php-parser-4.15.5.0#11e2663a5bc9db5d714eedb4277ee300403b4a9e",
+    "npm-asset/blazy-1.8.2.0",
+    "npm-asset/dom7-3.0.0.0",
+    "npm-asset/dropzone-5.9.3.0",
+    "npm-asset/exif-js-2.3.0.0",
+    "npm-asset/fortawesome--fontawesome-free-5.15.4.0",
+    "npm-asset/jquery-visible-1.2.0.0",
+    "npm-asset/lazysizes-5.3.2.0",
+    "npm-asset/select2-4.0.13.0",
+    "npm-asset/shariff-3.2.1.0",
+    "npm-asset/slick-carousel-1.8.1.0",
+    "npm-asset/ssr-window-3.0.0.0",
+    "npm-asset/swiper-6.8.4.0",
+    "oomphinc/composer-installers-extender-2.0.1.0#cbf4b6f9a24153b785d09eee755b995ba87bd5f9",
+    "palantirnet/drupal-rector-0.13.1.0#4814ad9fa7d19be068f75558220383967c258d10",
+    "paragonie/random_compat-9.99.100.0#996434e5492cb4c3edcb9168db6fbb1359ef965a",
+    "paragonie/sodium_compat-1.20.0.0#e592a3e06d1fa0d43988c7c7d9948ca836f644b6",
+    "pear/archive_tar-1.4.14.0#4d761c5334c790e45ef3245f0864b8955c562caa",
+    "pear/console_getopt-1.4.3.0#a41f8d3e668987609178c7c4a9fe48fecac53fa0",
+    "pear/pear-core-minimal-1.10.13.0#aed862e95fd286c53cc546734868dc38ff4b5b1d",
+    "pear/pear_exception-1.0.2.0#b14fbe2ddb0b9f94f5b24cf08783d599f776fff0",
+    "phar-io/manifest-2.0.3.0#97803eca37d319dfa7826cc2437fc020857acb53",
+    "phar-io/version-3.2.1.0#4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+    "phenx/php-font-lib-0.5.4.0#dd448ad1ce34c63d09baccd05415e361300c35b4",
+    "php-64bit-8.2.14.0",
+    "php-64bit-8.2.14.0",
+    "php-8.2.14.0",
+    "php-8.2.14.0",
+    "php-http/guzzle6-adapter-2.0.2.0#9d1a45eb1c59f12574552e81fb295e9e53430a56",
+    "php-http/httplug-2.4.0.0#625ad742c360c8ac580fcc647a1541d29e257f67",
+    "php-http/message-1.16.0.0#47a14338bf4ebd67d317bf1144253d7db4ab55fd",
+    "php-http/promise-1.1.0.0#4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
+    "php-ipv6-8.2.14.0",
+    "php-ipv6-8.2.14.0",
+    "phpdocumentor/reflection-common-2.2.0.0#1d01c49d4ed62f25aa84a747ad35d5a16924662b",
+    "phpdocumentor/reflection-docblock-5.3.0.0#622548b623e81ca6d78b721c5e029f4ce664f170",
+    "phpdocumentor/type-resolver-1.7.2.0#b2fe4d22a5426f38e014855322200b97b5362c0d",
+    "phpmailer/phpmailer-6.8.0.0#df16b615e371d81fb79e506277faea67a1be18f1",
+    "phpoption/phpoption-1.9.1.0#dd3a383e599f49777d8b628dadbb90cae435b87e",
+    "phpspec/prophecy-1.17.0.0#15873c65b207b07765dbc3c95d20fdf4a320cbe2",
+    "phpspec/prophecy-phpunit-2.0.2.0#9f26c224a2fa335f33e6666cc078fbf388255e87",
+    "phpstan/extension-installer-1.3.1.0#f45734bfb9984c6c56c4486b71230355f066a58a",
+    "phpstan/phpdoc-parser-1.21.3.0#b0c366dd2cea79407d635839d25423ba07c55dd6",
+    "phpstan/phpstan-1.10.15.0#762c4dac4da6f8756eebb80e528c3a47855da9bd",
+    "phpstan/phpstan-deprecation-rules-1.1.3.0#a22b36b955a2e9a3d39fe533b6c1bb5359f9c319",
+    "phpunit/php-code-coverage-9.2.26.0#443bc6912c9bd5b409254a40f4b0f4ced7c80ea1",
+    "phpunit/php-file-iterator-3.0.6.0#cf1c2e7c203ac650e352f4cc675a7021e7d1b3cf",
+    "phpunit/php-invoker-3.1.1.0#5a10147d0aaf65b58940a0b72f71c9ac0423cc67",
+    "phpunit/php-text-template-2.0.4.0#5da5f67fc95621df9ff4c4e5a84d6a8a2acf7c28",
+    "phpunit/php-timer-5.0.3.0#5a63ce20ed1b5bf577850e2c4e87f4aa902afbd2",
+    "phpunit/phpunit-9.6.8.0#17d621b3aff84d0c8b62539e269e87d8d5baa76e",
+    "politsin/jquery-ui-touch-punch-1.0.0.0#2fe375e05821e267f0f3c0e063197f5c406896dd",
+    "psr/cache-3.0.0.0#aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+    "psr/container-1.1.2.0#513e0666f7216c7459170d56df27dfcefe1689ea",
+    "psr/event-dispatcher-1.0.0.0#dbefd12671e8a14ec7f180cab83036ed26714bb0",
+    "psr/http-client-1.0.2.0#0955afe48220520692d2d09f7ab7e0f93ffd6a31",
+    "psr/http-factory-1.0.2.0#e616d01114759c4c489f93b099585439f795fe35",
+    "psr/http-message-1.1.0.0#cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
+    "psr/log-1.1.4.0#d49695b909c3b7628b6289db5479a1c204601f11",
+    "psy/psysh-0.11.18.0#4f00ee9e236fa6a48f4560d1300b9c961a70a7ec",
+    "pusher/pusher-php-server-4.1.5.0#251f22602320c1b1aff84798fe74f3f7ee0504a9",
+    "ralouphie/getallheaders-3.0.3.0#120b605dfeb996808c31b6477290a714d356e822",
+    "react/promise-2.10.0.0#f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38",
+    "rector/rector-0.13.10.0#d1e069db8ad3b4aea2b968248370c21415e4c180",
+    "sebastian/cli-parser-1.0.1.0#442e7c7e687e42adc03470c7b668bc4b2402c0b2",
+    "sebastian/code-unit-1.0.8.0#1fc9f64c0927627ef78ba436c9b17d967e68e120",
+    "sebastian/code-unit-reverse-lookup-2.0.3.0#ac91f01ccec49fb77bdc6fd1e548bc70f7faa3e5",
+    "sebastian/comparator-4.0.8.0#fa0f136dd2334583309d32b62544682ee972b51a",
+    "sebastian/complexity-2.0.2.0#739b35e53379900cc9ac327b2147867b8b6efd88",
+    "sebastian/diff-4.0.5.0#74be17022044ebaaecfdf0c5cd504fc9cd5a7131",
+    "sebastian/environment-5.1.5.0#830c43a844f1f8d5b7a1f6d6076b784454d8b7ed",
+    "sebastian/exporter-4.0.5.0#ac230ed27f0f98f597c8a2b6eb7ac563af5e5b9d",
+    "sebastian/global-state-5.0.5.0#0ca8db5a5fc9c8646244e629625ac486fa286bf2",
+    "sebastian/lines-of-code-1.0.3.0#c1c2e997aa3146983ed888ad08b15470a2e22ecc",
+    "sebastian/object-enumerator-4.0.4.0#5c9eeac41b290a3712d88851518825ad78f45c71",
+    "sebastian/object-reflector-2.0.4.0#b4f479ebdbf63ac605d183ece17d8d7fe49c15c7",
+    "sebastian/recursion-context-4.0.5.0#e75bd0f07204fec2a0af9b0f3cfe97d05f92efc1",
+    "sebastian/resource-operations-3.0.3.0#0f4443cb3a1d92ce809899753bc0d5d5a8dd19a8",
+    "sebastian/type-3.2.1.0#75e2c2a32f5e0b3aef905b9ed0b179b953b3d7c7",
+    "sebastian/version-3.0.2.0#c6c1022351a901512170118436c764e473f6de8c",
+    "seld/jsonlint-1.10.0.0#594fd6462aad8ecee0b45ca5045acea4776667f1",
+    "seld/phar-utils-1.2.1.0#ea2f4014f163c1be4c601b9b7bd6af81ba8d701c",
+    "sirbrillig/phpcs-variable-analysis-2.11.16.0#dc5582dc5a93a235557af73e523c389aac9a8e88",
+    "slevomat/coding-standard-8.3.0.0#a14df437f2efe861ca9118508f304de9655957e4",
+    "solarium/solarium-6.2.8.0#0bca4fdcd53e86dea19754b0081f91fe17248a9d",
+    "squizlabs/php_codesniffer-3.7.2.0#ed8e00df0a83aa96acf703f8c2979ff33341f879",
+    "stack/builder-1.0.6.0#a4faaa6f532c6086bc66c29e1bc6c29593e1ca7c",
+    "symfony-cmf/routing-2.3.4.0#bbcdf2f6301d740454ba9ebb8adaefd436c36a6b",
+    "symfony/browser-kit-4.4.44.0#2a1ff40723ef6b29c8229a860a9c8f815ad7dbbb",
+    "symfony/console-4.4.49.0#33fa45ffc81fdcc1ca368d4946da859c8cdb58d9",
+    "symfony/css-selector-4.4.44.0#bd0a6737e48de45b4b0b7b6fc98c78404ddceaed",
+    "symfony/debug-4.4.44.0#1a692492190773c5310bc7877cb590c04c2f05be",
+    "symfony/dependency-injection-4.4.49.0#9065fe97dbd38a897e95ea254eb5ddfe1310f734",
+    "symfony/deprecation-contracts-3.3.0.0#7c3aff79d10325257a001fcf92d991f24fc967cf",
+    "symfony/dom-crawler-4.4.45.0#4b8daf6c56801e6d664224261cb100b73edc78a5",
+    "symfony/error-handler-4.4.44.0#be731658121ef2d8be88f3a1ec938148a9237291",
+    "symfony/event-dispatcher-4.4.44.0#1e866e9e5c1b22168e0ce5f0b467f19bba61266a",
+    "symfony/event-dispatcher-contracts-1.1.13.0#1d5cd762abaa6b2a4169d3e77610193a7157129e",
+    "symfony/filesystem-4.4.42.0#815412ee8971209bd4c1eecd5f4f481eacd44bf5",
+    "symfony/finder-4.4.44.0#66bd787edb5e42ff59d3523f623895af05043e4f",
+    "symfony/http-client-contracts-2.5.2.0#ba6a9f0e8f3edd190520ee3b9a958596b6ca2e70",
+    "symfony/http-foundation-4.4.49.0#191413c7b832c015bb38eae963f2e57498c3c173",
+    "symfony/http-kernel-4.4.50.0#aa6df6c045f034aa13ac752fc234bb300b9488ef",
+    "symfony/lock-4.4.46.0#8b060dd4e10f05219698ceb3a4ad735b19c1be4f",
+    "symfony/mime-5.4.13.0#bb2ccf759e2b967dcd11bdee5bdf30dddd2290bd",
+    "symfony/phpunit-bridge-5.4.23.0#1572c5b7cad812bdf0414d89a32a33a2dafb38ba",
+    "symfony/polyfill-ctype-1.27.0.0#5bbc823adecdae860bb64756d639ecfec17b050a",
+    "symfony/polyfill-iconv-1.27.0.0#927013f3aac555983a5059aada98e1907d842695",
+    "symfony/polyfill-intl-grapheme-1.27.0.0#511a08c03c1960e08a883f4cffcacd219b758354",
+    "symfony/polyfill-intl-idn-1.27.0.0#639084e360537a19f9ee352433b84ce831f3d2da",
+    "symfony/polyfill-intl-normalizer-1.27.0.0#19bd1e4fcd5b91116f14d8533c57831ed00571b6",
+    "symfony/polyfill-mbstring-1.27.0.0#8ad114f6b39e2c98a8b0e3bd907732c207c2b534",
+    "symfony/polyfill-php72-1.27.0.0#869329b1e9894268a8a61dabb69153029b7a8c97",
+    "symfony/polyfill-php73-1.27.0.0#9e8ecb5f92152187c4799efd3c96b78ccab18ff9",
+    "symfony/polyfill-php80-1.27.0.0#7a6ff3f1959bb01aefccb463a0f2cd3d3d2fd936",
+    "symfony/process-4.4.44.0#5cee9cdc4f7805e2699d9fd66991a0e6df8252a2",
+    "symfony/psr-http-message-bridge-2.1.4.0#a125b93ef378c492e274f217874906fb9babdebb",
+    "symfony/routing-4.4.44.0#f7751fd8b60a07f3f349947a309b5bdfce22d6ae",
+    "symfony/serializer-4.4.47.0#6e01d63c55657930a6de03d6e36aae50af98888d",
+    "symfony/service-contracts-2.5.2.0#4b426aac47d6427cc1a1d0f7e2ac724627f5966c",
+    "symfony/string-6.3.0.0#f2e190ee75ff0f5eced645ec0be5c66fac81f51f",
+    "symfony/translation-4.4.47.0#45036b1d53accc48fe9bab71ccd86d57eba0dd94",
+    "symfony/translation-contracts-2.5.2.0#136b19dd05cdf0709db6537d058bcab6dd6e2dbe",
+    "symfony/validator-4.4.48.0#54781a4c41efbd283b779110bf8ae7f263737775",
+    "symfony/var-dumper-5.4.24.0#8e12706bf9c68a2da633f23bfdc15b4dce5970b3",
+    "symfony/yaml-4.4.45.0#aeccc4dc52a9e634f1d1eebeb21eacfdcff1053d",
+    "theseer/tokenizer-1.2.1.0#34a41e998c2183e22995f158c581e7b5e755ab9e",
+    "thewirecutter/paapi5-php-sdk-1.2.1.0#46d8a0534eb1120917cc2b45d7747bfc3c933fbb",
+    "thunder/taas-assets-9999999-dev#b1863281f402db55e61198d39abd15d2322f4e14 (alias of dev-main)",
+    "thunder/taas-assets-dev-main#b1863281f402db55e61198d39abd15d2322f4e14",
+    "thunder/thunder-distribution-6.5.5.0#8ec2be6033118490758d236398fcf8ac30e6feb5",
+    "twig/twig-2.15.5.0#fc02a6af3eeb97c4bf5650debc76c2eda85ac22e",
+    "typo3/phar-stream-wrapper-3.1.7.0#5cc2f04a4e2f5c7e9cc02a3bdf80fae0f3e11a8c",
+    "vlucas/phpdotenv-5.5.0.0#1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
+    "wamania/php-stemmer-1.3.0.0#7ea3de803b7d8363be415534c912c70f289de0c6",
+    "webflo/drupal-finder-1.2.2.0#c8e5dbe65caef285fec8057a4c718a0d4138d1ee",
+    "webmozart/assert-1.11.0.0#11cb2199493b2f8a3b53e7f19068fc6aac760991",
+    "webmozart/path-util-2.3.0.0#d939f7edc24c9a1bb9c0dee5cb05d8e859490725",
+    "webonyx/graphql-php-14.11.9.0#ff91c9f3cf241db702e30b2c42bcc0920e70ac70",
+    "willdurand/geocoder-4.6.0.0#be3d9ed0fddf8c698ee079d8a07ae9520b4a49a1"
+]
