@@ -1,0 +1,17 @@
+{
+    "name": "vendor/autoload.php",
+    "description": "file",
+    "type": "project",
+    "require": {
+        "dpp/composer-plugin": "dev-main",
+        "league/omnipay": "3.2.x-dev"
+    },
+    "license": "t",
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "dpp/composer-plugin": true,
+            "php-http/discovery": true
+        }
+    }
+}
